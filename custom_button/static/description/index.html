@@ -330,6 +330,7 @@
             <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Click on any specification to view detailed information</p>
             
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem">
+                <!-- Odoo Version -->
                 <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
                     <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
                         <i class="fab fa-odoo"></i> Odoo Version
@@ -337,24 +338,133 @@
                     <p style="color:#718096">Specifically designed and tested for Odoo 18 with full compatibility</p>
                     <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
                         <ul style="list-style:none;padding:0">
-                            <li style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem;color:#4a5568;font-size:0.9rem">
-                                <i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Odoo 18.0 Community Edition
-                            </li>
-                            <li style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem;color:#4a5568;font-size:0.9rem">
-                                <i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Odoo 18.0 Enterprise Edition
-                            </li>
-                            <li style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem;color:#4a5568;font-size:0.9rem">
-                                <i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Backward compatible with 17.0
-                            </li>
-                            <li style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem;color:#4a5568;font-size:0.9rem">
-                                <i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Future-ready architecture
-                            </li>
-                            <li style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem;color:#4a5568;font-size:0.9rem">
-                                <i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Tested on latest stable release
-                            </li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Odoo 18.0 Community Edition</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Odoo 18.0 Enterprise Edition</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Backward compatible with 17.0</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Future-ready architecture</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Tested on latest stable release</li>
                         </ul>
                     </div>
                 </div>
+                
+                <!-- Framework -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-code"></i> Framework
+                    </h4>
+                    <p style="color:#718096">Built with OWL Framework, JavaScript ES6+, and modern web standards</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> OWL (Odoo Web Library) Framework</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> JavaScript ES6+ syntax</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> XML templating system</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Python backend integration</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Modern web standards compliance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Dependencies -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-database"></i> Dependencies
+                    </h4>
+                    <p style="color:#718096">Requires: base, point_of_sale modules (standard Odoo modules)</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> base (Odoo core module)</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> point_of_sale (POS module)</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> web (Web framework)</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> No external dependencies</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Lightweight installation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- UI Framework -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-paint-brush"></i> UI Framework
+                    </h4>
+                    <p style="color:#718096">Bootstrap 5 with custom CSS for seamless Odoo integration</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Bootstrap 5 responsive grid</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Custom CSS animations</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Odoo theme integration</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Touch-optimized controls</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Cross-browser compatibility</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- License -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-key"></i> License
+                    </h4>
+                    <p style="color:#718096">LGPL-3 License - Open source and commercially friendly</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> LGPL-3 Open Source License</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Commercial use allowed</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Modification permitted</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Distribution allowed</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> No warranty disclaimer</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Installation -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-download"></i> Installation
+                    </h4>
+                    <p style="color:#718096">One-click installation through Odoo Apps or manual upload</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Odoo Apps Store installation</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Manual ZIP file upload</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Git repository cloning</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Automatic dependency resolution</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> No server restart required</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Localization -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-language"></i> Localization
+                    </h4>
+                    <p style="color:#718096">Supports Multi-currency amount input with decimal precision</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Decimal precision handling</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Multi-currency compatibility</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Regional number formatting</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Translation ready</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Multi-User -->
+                <div onclick="toggleSpecDetails(this)" style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.3s ease">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                        <i class="fas fa-users"></i> Multi-User
+                    </h4>
+                    <p style="color:#718096">Supports multiple POS sessions and concurrent users</p>
+                    <div class="spec-details" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;display:none">
+                        <ul style="list-style:none;padding:0">
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Multiple POS sessions</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Concurrent user support</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Session isolation</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> User permission control</li>
+                            <li><i class="fas fa-check" style="color:#48bb78;font-size:0.8rem"></i> Real-time synchronization</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -364,6 +474,7 @@
             <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Choose your preferred Odoo deployment option</p>
             
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem">
+                <!-- On-Premise Odoo -->
                 <div style="background:white;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);transition:transform 0.3s ease;border-top:4px solid #48bb78">
                     <div style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:white;background:#48bb78">
                         <i class="fas fa-check"></i>
@@ -382,6 +493,47 @@
                         </li>
                     </ul>
                 </div>
+                
+                <!-- Odoo SH -->
+                <div style="background:white;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);transition:transform 0.3s ease;border-top:4px solid #48bb78">
+                    <div style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:white;background:#48bb78">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>Odoo SH (Odoo.sh)</h3>
+                    <p>Fully compatible with Odoo SH cloud platform for seamless deployment and automatic updates.</p>
+                    <ul style="list-style:none;padding:0;text-align:left;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Cloud deployment
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Automatic backups
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Easy updates
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Odoo Online -->
+                <div style="background:white;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);transition:transform 0.3s ease;border-top:4px solid #e53e3e">
+                  <div style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:white;background:#e53e3e">
+                      <i class="fas fa-times"></i>
+                  </div>
+                  <h3>Odoo Online</h3>
+                  <p>Currently not available for Odoo Online due to platform restrictions on custom JavaScript modules.</p>
+                  <ul style="list-style:none;padding:0;text-align:left;margin-top:1rem">
+                      <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                          <i class="fas fa-times" style="color:#e53e3e;font-size:0.9rem"></i> Platform restrictions
+                      </li>
+                      <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                          <i class="fas fa-times" style="color:#e53e3e;font-size:0.9rem"></i> Limited JS support
+                      </li>
+                      <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                          <i class="fas fa-times" style="color:#e53e3e;font-size:0.9rem"></i> Not compatible
+                      </li>
+                  </ul>
+              </div>
+
             </div>
         </div>
 
@@ -392,12 +544,60 @@
                 <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Your trusted Odoo Ready partner for custom development and solutions</p>
                 
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem;margin-top:2rem">
-                    <div style="background:#f7fafc;padding:2rem;border-radius:12px;backdrop-filter:blur(10px)">
+                   <!-- Company Overview -->
+                    <div style="background:#f7fafc;padding:2rem;border-radius:12px;backdrop-filter:blur(10px);margin-bottom:1.5rem;">
                         <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748;display:flex;align-items:center;gap:10px">
                             <i class="fas fa-building"></i> Company Overview
                         </h3>
-                        <p>Spopli Web Development & Services is a certified Odoo Ready partner specializing in custom module development, implementation, and comprehensive support services. We help businesses optimize their operations with tailored Odoo solutions.</p>
+                        <p>Spopli Web Development & Services is a certified Odoo Ready Partner specializing in custom module development, implementation, and comprehensive support services. We help businesses optimize their operations with tailored Odoo solutions.</p>
                     </div>
+                    
+                    <!-- Contact Information -->
+                    <div style="background:#f7fafc;padding:2rem;border-radius:12px;backdrop-filter:blur(10px);margin-bottom:1.5rem;">
+                        <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                            <i class="fas fa-phone"></i> Contact Information
+                        </h3>
+                        <div style="color:#4a5568;margin-bottom:0.5rem;">
+                            <i class="fas fa-phone" style="margin-right:8px;"></i> Phone: (+91) 2562 275457
+                        </div>
+                        <div style="color:#4a5568;margin-bottom:0.5rem;">
+                            <i class="fas fa-envelope" style="margin-right:8px;"></i> chintu2411@gmail.com
+                        </div>
+                        <div style="color:#4a5568;margin-bottom:0.5rem;">
+                            <i class="fas fa-globe" style="margin-right:8px;"></i> https://spopli.com
+                        </div>
+                    </div>
+                    
+                    <!-- Our Services -->
+                    <div style="background:#f7fafc;padding:2rem;border-radius:12px;backdrop-filter:blur(10px);margin-bottom:1.5rem;">
+                        <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                            <i class="fas fa-cogs"></i> Our Services
+                        </h3>
+                        <ul style="list-style:none;padding:0;margin:0;">
+                            <li style="margin-bottom:0.5rem;color:#4a5568;">
+                                <i class="fas fa-check" style="color:#48bb78;margin-right:8px;"></i> Custom Odoo Module Development
+                            </li>
+                            <li style="margin-bottom:0.5rem;color:#4a5568;">
+                                <i class="fas fa-check" style="color:#48bb78;margin-right:8px;"></i> Odoo Implementation
+                            </li>
+                            <li style="margin-bottom:0.5rem;color:#4a5568;">
+                                <i class="fas fa-check" style="color:#48bb78;margin-right:8px;"></i> Technical Support & Maintenance
+                            </li>
+                            <li style="margin-bottom:0.5rem;color:#4a5568;">
+                                <i class="fas fa-check" style="color:#48bb78;margin-right:8px;"></i> Odoo Training & Consultation
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Odoo Partnership -->
+                    <div style="background:#f7fafc;padding:2rem;border-radius:12px;backdrop-filter:blur(10px);margin-bottom:1.5rem;">
+                        <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748;display:flex;align-items:center;gap:10px">
+                            <i class="fab fa-odoo"></i> Odoo Partnership
+                        </h3>
+                        <p>As an official Odoo Ready partner, we provide certified solutions and maintain the highest standards of quality and compatibility. Our modules are tested and optimized for production environments.</p>
+                    </div>
+
+
                 </div>
             </div>
         </div>
