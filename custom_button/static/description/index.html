@@ -3,566 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POS Manual Amount Entry - Odoo 18 Module | Spopli Web Development</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background-color: #f8fafc;
-            margin: 0;
-            padding: 0;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        .tab-button {
-            padding: 1rem 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #64748b;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        .tab-button.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-            background: rgba(102, 126, 234, 0.05);
-        }
-        .tab-content {
-            display: none;
-            padding: 3rem 0;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        .check-icon {
-            color: #10b981;
-            font-size: 0.9rem;
-            margin-right: 8px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            position: relative;
-            margin: 5% auto;
-        }
-    </style>
+    <title>POS Manual Amount Entry - Odoo 18 Module</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
-
-<!-- Header -->
-<header class="gradient-bg text-white py-3 shadow-sm">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-8">
-                <div class="d-flex align-items-center">
-                    <img src="icon.png" alt="Module Icon" class="me-3" style="height:50px;width:50px;background:white;padding:5px;border-radius:8px">
-                    <div>
-                        <h5 class="mb-1">POS Manual Amount Entry</h5>
-                        <small class="opacity-75">
-                            <i class="fab fa-odoo"></i> Odoo 18 Compatible Module
-                        </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-end">
-                <small>
-                    <i class="fas fa-envelope"></i> 
-                    <a href="mailto:support@example.com" class="text-white text-decoration-none">Support</a>
-                </small>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Hero Section -->
-<section class="gradient-bg text-white py-5">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="mb-4">
-                    <div class="d-inline-block bg-white bg-opacity-20 px-3 py-1 rounded-pill mb-3">
-                        <small><i class="fab fa-odoo"></i> Odoo 18 POS Module</small>
-                    </div>
-                </div>
-                <h1 class="display-4 fw-bold mb-4">POS Manual Amount Entry</h1>
-                <p class="lead mb-4">
-                    Enter amounts in any currency and automatically calculate product quantities. 
-                    Perfect for retail businesses dealing with weight-based products and flexible pricing.
-                </p>
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <i class="fas fa-calculator fa-2x mb-2"></i>
-                            <p class="small">Smart Calculations</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <i class="fas fa-globe fa-2x mb-2"></i>
-                            <p class="small">Multi-Currency</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <i class="fas fa-mobile-alt fa-2x mb-2"></i>
-                            <p class="small">Touch Optimized</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Navigation Tabs -->
-<div class="bg-white border-bottom">
-    <div class="container">
-        <div class="d-flex justify-content-center overflow-auto">
-            <button class="tab-button active" onclick="showTab('features', this)">
-                <i class="fas fa-star"></i> Features
-            </button>
-            <button class="tab-button" onclick="showTab('screenshots', this)">
-                <i class="fas fa-images"></i> Screenshots
-            </button>
-            <button class="tab-button" onclick="showTab('technical', this)">
-                <i class="fas fa-cogs"></i> Technical Details
-            </button>
-            <button class="tab-button" onclick="showTab('support', this)">
-                <i class="fas fa-life-ring"></i> Support
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Content Container -->
-<div class="container">
-    
-    <!-- Features Tab -->
-    <div id="features" class="tab-content active">
-        <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold mb-3">Key Features</h2>
-            <p class="lead text-muted">Built for modern retail operations with practical functionality</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm card-hover">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="feature-icon me-3">
-                                <i class="fas fa-calculator"></i>
-                            </div>
+    <div class="container-fluid">
+        <!-- Header Section -->
+        <section class="bg-primary text-white py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="icon.png" alt="Module Icon" class="mr-3" style="width: 80px; height: 80px; border-radius: 10px;">
                             <div>
-                                <h5 class="card-title">Amount-Based Entry</h5>
-                                <p class="card-text">Enter purchase amounts and automatically calculate exact quantities needed.</p>
+                                <h1 class="h2 mb-1">POS Manual Amount Entry</h1>
+                                <p class="mb-0 text-light">Odoo 18 Point of Sale Enhancement</p>
                             </div>
                         </div>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Multi-currency support</li>
-                            <li><i class="fas fa-check check-icon"></i>Automatic quantity calculation</li>
-                            <li><i class="fas fa-check check-icon"></i>Real-time validation</li>
-                        </ul>
+                        <p class="lead">Revolutionary Point of Sale module that allows cashiers to enter amounts in any currency and automatically calculate product quantities. Perfect for retail businesses dealing with weight-based products, bulk items, and flexible pricing scenarios.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm card-hover">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="feature-icon me-3">
-                                <i class="fas fa-weight"></i>
-                            </div>
-                            <div>
-                                <h5 class="card-title">Weight & Bulk Products</h5>
-                                <p class="card-text">Perfect for products sold by weight, volume, or measurement.</p>
-                            </div>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Weight-based calculations</li>
-                            <li><i class="fas fa-check check-icon"></i>Volume measurements</li>
-                            <li><i class="fas fa-check check-icon"></i>Decimal precision</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm card-hover">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="feature-icon me-3">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div>
-                                <h5 class="card-title">Touch-Optimized Interface</h5>
-                                <p class="card-text">Large buttons and intuitive interface for touch devices.</p>
-                            </div>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Touch-friendly buttons</li>
-                            <li><i class="fas fa-check check-icon"></i>Responsive design</li>
-                            <li><i class="fas fa-check check-icon"></i>Mobile optimized</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm card-hover">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-start mb-3">
-                            <div class="feature-icon me-3">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div>
-                                <h5 class="card-title">Real-Time Processing</h5>
-                                <p class="card-text">Lightning-fast calculations with instant order updates.</p>
-                            </div>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Instant calculations</li>
-                            <li><i class="fas fa-check check-icon"></i>Live updates</li>
-                            <li><i class="fas fa-check check-icon"></i>Error prevention</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Screenshots Tab -->
-    <div id="screenshots" class="tab-content">
-        <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold mb-3">Screenshots</h2>
-            <p class="lead text-muted">See the module in action</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm card-hover" onclick="openModal('pos-interface')">
-                    <div class="card-body text-center p-4" style="cursor: pointer;">
-                        <div class="mb-3" style="height: 200px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-desktop fa-4x text-muted"></i>
-                        </div>
-                        <h6 class="card-title">POS Interface</h6>
-                        <p class="card-text small text-muted">Integration with Odoo POS interface</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm card-hover" onclick="openModal('amount-entry')">
-                    <div class="card-body text-center p-4" style="cursor: pointer;">
-                        <div class="mb-3" style="height: 200px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-keyboard fa-4x text-muted"></i>
-                        </div>
-                        <h6 class="card-title">Amount Entry</h6>
-                        <p class="card-text small text-muted">User-friendly amount input dialog</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm card-hover" onclick="openModal('calculation')">
-                    <div class="card-body text-center p-4" style="cursor: pointer;">
-                        <div class="mb-3" style="height: 200px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-calculator fa-4x text-muted"></i>
-                        </div>
-                        <h6 class="card-title">Auto Calculation</h6>
-                        <p class="card-text small text-muted">Automatic quantity calculation results</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!-- Navigation Tabs -->
+        <div class="container">
+            <ul class="nav nav-tabs mt-4" id="moduleTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="features-tab" data-toggle="tab" href="#features" role="tab">
+                        <i class="fas fa-star"></i> Features
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="screenshots-tab" data-toggle="tab" href="#screenshots" role="tab">
+                        <i class="fas fa-images"></i> Screenshots
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="technical-tab" data-toggle="tab" href="#technical" role="tab">
+                        <i class="fas fa-cogs"></i> Technical
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="compatibility-tab" data-toggle="tab" href="#compatibility" role="tab">
+                        <i class="fas fa-check-circle"></i> Compatibility
+                    </a>
+                </li>
+            </ul>
 
-    <!-- Technical Details Tab -->
-    <div id="technical" class="tab-content">
-        <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold mb-3">Technical Information</h2>
-            <p class="lead text-muted">Module specifications and requirements</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h5 class="card-title"><i class="fab fa-odoo text-primary"></i> Compatibility</h5>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Odoo 18.0 Community Edition</li>
-                            <li><i class="fas fa-check check-icon"></i>Odoo 18.0 Enterprise Edition</li>
-                            <li><i class="fas fa-check check-icon"></i>Compatible with standard POS module</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h5 class="card-title"><i class="fas fa-code text-primary"></i> Technology</h5>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>OWL Framework</li>
-                            <li><i class="fas fa-check check-icon"></i>JavaScript ES6+</li>
-                            <li><i class="fas fa-check check-icon"></i>XML Templates</li>
-                            <li><i class="fas fa-check check-icon"></i>Python Backend</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h5 class="card-title"><i class="fas fa-download text-primary"></i> Installation</h5>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Standard Odoo module installation</li>
-                            <li><i class="fas fa-check check-icon"></i>No additional dependencies</li>
-                            <li><i class="fas fa-check check-icon"></i>Easy setup and configuration</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <h5 class="card-title"><i class="fas fa-shield-alt text-primary"></i> License</h5>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>OPL-1 License</li>
-                            <li><i class="fas fa-check check-icon"></i>Commercial use allowed</li>
-                            <li><i class="fas fa-check check-icon"></i>Modification permitted</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Support Tab -->
-    <div id="support" class="tab-content">
-        <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold mb-3">Support & Documentation</h2>
-            <p class="lead text-muted">Get help and access resources</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-8 mx-auto">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body p-5 text-center">
-                        <h5 class="card-title mb-4">Need Help?</h5>
-                        <p class="card-text mb-4">
-                            Our support team is here to help you with installation, configuration, 
-                            and any issues you might encounter with the POS Manual Amount Entry module.
-                        </p>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a href="mailto:support@example.com" class="btn btn-primary">
-                                <i class="fas fa-envelope"></i> Contact Support
-                            </a>
-                        </div>
+            <!-- Tab Content -->
+            <div class="tab-content" id="moduleTabsContent">
+                <!-- Features Tab -->
+                <div class="tab-pane fade show active" id="features" role="tabpanel">
+                    <div class="py-5">
+                        <h2 class="text-center mb-5">Powerful Features for Modern Retail</h2>
                         
-                        <hr class="my-4">
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 border-left-primary">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-primary text-white rounded p-3 mr-3">
+                                                <i class="fas fa-calculator fa-lg"></i>
+                                            </div>
+                                            <h4 class="card-title mb-0">Smart Amount-Based Entry</h4>
+                                        </div>
+                                        <p class="card-text">Enter purchase amounts in any currency and let the system automatically calculate the exact quantity needed. Perfect for weight-based products like fruits, vegetables, spices, and bulk items sold by measurement.</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Multi-currency amount input</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Automatic quantity calculation</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Real-time price validation</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Instant order line updates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 border-left-success">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-success text-white rounded p-3 mr-3">
+                                                <i class="fas fa-weight fa-lg"></i>
+                                            </div>
+                                            <h4 class="card-title mb-0">Weight & Bulk Products</h4>
+                                        </div>
+                                        <p class="card-text">Specially designed for businesses selling products by weight, volume, or measurement. Enter the customer's budget and instantly get the exact quantity they can purchase within their spending limit.</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Weight-based calculations (kg/gram)</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Volume measurements (liters/ml)</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Decimal quantity precision</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Flexible price per unit handling</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 border-left-info">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-info text-white rounded p-3 mr-3">
+                                                <i class="fas fa-globe fa-lg"></i>
+                                            </div>
+                                            <h4 class="card-title mb-0">Multi-Currency Support</h4>
+                                        </div>
+                                        <p class="card-text">Works seamlessly with any currency configured in your Odoo system. From USD to EUR, INR to GBP - the module adapts to your local currency settings automatically without any additional configuration.</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Auto-detects system currency</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Supports 100+ currencies</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Decimal precision handling</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Regional formatting rules</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 border-left-warning">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-warning text-white rounded p-3 mr-3">
+                                                <i class="fas fa-mobile-alt fa-lg"></i>
+                                            </div>
+                                            <h4 class="card-title mb-0">Touch-Optimized Interface</h4>
+                                        </div>
+                                        <p class="card-text">Designed with touch devices in mind, featuring large buttons and intuitive interface. Works perfectly on tablets, POS terminals, and mobile devices with responsive design that adapts to any screen size.</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Large touch-friendly buttons</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Responsive mobile design</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Tablet-optimized layout</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Fast input methods</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screenshots Tab -->
+                <div class="tab-pane fade" id="screenshots" role="tabpanel">
+                    <div class="py-5">
+                        <h2 class="text-center mb-5">Module Screenshots</h2>
                         
-                        <h6>Support includes:</h6>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check check-icon"></i>Installation assistance</li>
-                            <li><i class="fas fa-check check-icon"></i>Configuration guidance</li>
-                            <li><i class="fas fa-check check-icon"></i>Bug fixes and updates</li>
-                            <li><i class="fas fa-check check-icon"></i>Feature clarifications</li>
-                        </ul>
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="screenshot_1.png" class="card-img-top" alt="POS Interface Integration">
+                                    <div class="card-body">
+                                        <h5 class="card-title">POS Interface Integration</h5>
+                                        <p class="card-text">Seamlessly integrated "Enter Amount" button in the Odoo 18 POS interface, positioned for easy access during checkout.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="screenshot_2.png" class="card-img-top" alt="Amount Entry Popup">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Amount Entry Popup</h5>
+                                        <p class="card-text">Clean, user-friendly popup for entering amounts with proper validation and confirmation buttons.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="screenshot_3.png" class="card-img-top" alt="Automatic Calculation">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Automatic Calculation</h5>
+                                        <p class="card-text">Real-time quantity calculation based on entered amount and product price, with instant order line updates.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Tab -->
+                <div class="tab-pane fade" id="technical" role="tabpanel">
+                    <div class="py-5">
+                        <h2 class="text-center mb-5">Technical Specifications</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fab fa-odoo mr-2"></i>System Requirements</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><strong>Odoo Version:</strong> 18.0 Community/Enterprise</li>
+                                            <li><strong>Dependencies:</strong> base, point_of_sale</li>
+                                            <li><strong>License:</strong> OPL-1</li>
+                                            <li><strong>Installation:</strong> Standard Odoo app installation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-4">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0"><i class="fas fa-code mr-2"></i>Technology Stack</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><strong>Framework:</strong> OWL (Odoo Web Library)</li>
+                                            <li><strong>Frontend:</strong> JavaScript ES6+, XML Templates</li>
+                                            <li><strong>Backend:</strong> Python 3.8+</li>
+                                            <li><strong>UI:</strong> Bootstrap 4, Custom CSS</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0"><i class="fas fa-features mr-2"></i>Key Features</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Real-time amount-to-quantity conversion</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Multi-currency support</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Touch-optimized interface</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Input validation and error handling</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Seamless POS integration</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-4">
+                                    <div class="card-header bg-warning text-white">
+                                        <h5 class="mb-0"><i class="fas fa-users mr-2"></i>Multi-User Support</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Multiple POS sessions</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Concurrent user support</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Session isolation</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Real-time synchronization</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compatibility Tab -->
+                <div class="tab-pane fade" id="compatibility" role="tabpanel">
+                    <div class="py-5">
+                        <h2 class="text-center mb-5">Platform Compatibility</h2>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 mb-4">
+                                <div class="card text-center border-success">
+                                    <div class="card-body">
+                                        <div class="text-success mb-3">
+                                            <i class="fas fa-check-circle fa-3x"></i>
+                                        </div>
+                                        <h5 class="card-title">On-Premise Odoo</h5>
+                                        <p class="card-text">Perfect for self-hosted Odoo installations with full control and customization options.</p>
+                                        <ul class="list-unstyled text-left">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Full customization control</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>No restrictions</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Direct file access</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-4">
+                                <div class="card text-center border-success">
+                                    <div class="card-body">
+                                        <div class="text-success mb-3">
+                                            <i class="fas fa-check-circle fa-3x"></i>
+                                        </div>
+                                        <h5 class="card-title">Odoo.sh</h5>
+                                        <p class="card-text">Fully compatible with Odoo SH cloud platform for seamless deployment and automatic updates.</p>
+                                        <ul class="list-unstyled text-left">
+                                            <li><i class="fas fa-check text-success mr-2"></i>Cloud deployment</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Automatic backups</li>
+                                            <li><i class="fas fa-check text-success mr-2"></i>Easy updates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-4">
+                                <div class="card text-center border-danger">
+                                    <div class="card-body">
+                                        <div class="text-danger mb-3">
+                                            <i class="fas fa-times-circle fa-3x"></i>
+                                        </div>
+                                        <h5 class="card-title">Odoo Online</h5>
+                                        <p class="card-text">Currently not available for Odoo Online due to platform restrictions on custom JavaScript modules.</p>
+                                        <ul class="list-unstyled text-left">
+                                            <li><i class="fas fa-times text-danger mr-2"></i>Platform restrictions</li>
+                                            <li><i class="fas fa-times text-danger mr-2"></i>Limited JS support</li>
+                                            <li><i class="fas fa-times text-danger mr-2"></i>Not compatible</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Modal for Screenshots -->
-<div id="screenshotModal" class="modal">
-    <div class="modal-content">
-        <div class="d-flex justify-content-between align-items-center p-4 border-bottom">
-            <h5 id="modalTitle">Screenshot</h5>
-            <button type="button" class="btn-close" onclick="closeModal()"></button>
-        </div>
-        <div id="modalBody" class="p-4"></div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="bg-dark text-white py-4 mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p class="mb-0">&copy; 2024 POS Manual Amount Entry Module</p>
-            </div>
-            <div class="col-md-6 text-end">
-                <small>Compatible with Odoo 18</small>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script>
-function showTab(tabName, clickedTab) {
-    // Hide all tab content
-    document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    
-    // Remove active class from all tabs
-    document.querySelectorAll('.tab-button').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // Show selected tab content
-    const selectedContent = document.getElementById(tabName);
-    if (selectedContent) {
-        selectedContent.classList.add('active');
-    }
-    
-    // Add active class to clicked tab
-    if (clickedTab) {
-        clickedTab.classList.add('active');
-    }
-}
-
-const screenshotData = {
-    'pos-interface': {
-        title: 'POS Interface Integration',
-        content: `
-            <div class="text-center mb-4">
-                <div style="height: 300px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-desktop fa-5x text-muted"></i>
+        <!-- Installation Guide -->
+        <section class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Installation Instructions</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-download mr-2"></i>Standard Installation</h5>
+                            </div>
+                            <div class="card-body">
+                                <ol>
+                                    <li>Download the module from Odoo Apps</li>
+                                    <li>Go to Apps menu in your Odoo instance</li>
+                                    <li>Click "Update Apps List"</li>
+                                    <li>Search for "POS Manual Amount Entry"</li>
+                                    <li>Click Install</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-cog mr-2"></i>Configuration</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check text-success mr-2"></i>No additional configuration required</li>
+                                    <li><i class="fas fa-check text-success mr-2"></i>Works with existing POS settings</li>
+                                    <li><i class="fas fa-check text-success mr-2"></i>Automatically integrates with POS interface</li>
+                                    <li><i class="fas fa-check text-success mr-2"></i>Ready to use immediately after installation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p>The "Enter Amount" button is seamlessly integrated into the Odoo 18 POS interface, positioned for easy access during checkout operations.</p>
-            <ul>
-                <li>Strategic button placement</li>
-                <li>Consistent with Odoo UI design</li>
-                <li>Touch-friendly interface</li>
-            </ul>
-        `
-    },
-    'amount-entry': {
-        title: 'Amount Entry Dialog',
-        content: `
-            <div class="text-center mb-4">
-                <div style="height: 300px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-keyboard fa-5x text-muted"></i>
+        </section>
+
+        <!-- Support Information -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <h2 class="mb-4">Need Help?</h2>
+                        <p class="lead mb-4">Our team is here to support you with installation, configuration, and any questions you may have about this module.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-envelope mr-2"></i>Email Support</h5>
+                                        <p class="card-text">Get help via email</p>
+                                        <a href="mailto:chintu2411@gmail.com" class="btn btn-primary">Contact Support</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="fas fa-question-circle mr-2"></i>Documentation</h5>
+                                        <p class="card-text">View user guides and FAQ</p>
+                                        <button class="btn btn-outline-primary" disabled>Coming Soon</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p>Clean, user-friendly popup for entering amounts with proper validation and confirmation buttons.</p>
-            <ul>
-                <li>Input validation and sanitization</li>
-                <li>Clear visual feedback</li>
-                <li>Easy confirmation process</li>
-            </ul>
-        `
-    },
-    'calculation': {
-        title: 'Automatic Calculation',
-        content: `
-            <div class="text-center mb-4">
-                <div style="height: 300px; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-calculator fa-5x text-muted"></i>
-                </div>
-            </div>
-            <p>Real-time quantity calculation based on entered amount and product price, with instant order line updates.</p>
-            <ul>
-                <li>Instant mathematical calculations</li>
-                <li>Automatic order line updates</li>
-                <li>Precise decimal handling</li>
-            </ul>
-        `
-    }
-};
+        </section>
+    </div>
 
-function openModal(screenshotId) {
-    const modal = document.getElementById('screenshotModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    
-    const data = screenshotData[screenshotId];
-    if (data) {
-        modalTitle.textContent = data.title;
-        modalBody.innerHTML = data.content;
-        modal.style.display = 'flex';
-        modal.style.alignItems = 'center';
-        modal.style.justifyContent = 'center';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeModal() {
-    const modal = document.getElementById('screenshotModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Close modal when clicking outside
-document.getElementById('screenshotModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeModal();
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// Initialize page
-document.addEventListener('DOMContentLoaded', function() {
-    showTab('features', document.querySelector('.tab-button.active'));
-});
-</script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
