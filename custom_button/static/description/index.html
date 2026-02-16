@@ -5,1129 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS Manual Amount Entry - Odoo 18</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
-    
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8fafc;
-            margin: 0;
-            padding: 0;
-        }
-        
-        /* Header Styles */
-        .app-header {
-            background: linear-gradient(135deg, #714b67 0%, #8b5a8c 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-img {
-            height: 50px;
-            width: auto;
-            background: white;
-            padding: 5px;
-            border-radius: 8px;
-        }
-        
-        .company-info h1 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .badge-partner {
-            background: rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: 2px;
-        }
-        
-        .contact-links {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: opacity 0.3s ease;
-        }
-        
-        .contact-links a:hover {
-            opacity: 0.8;
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, #714b67 0%, #8b5a8c 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .icon-box {
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .icon-box img {
-            width: 100%;
-            height: auto;
-        }
-        
-        .icon-plus {
-            font-size: 2rem;
-            opacity: 0.7;
-        }
-        
-        .hero-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-description {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Tabs */
-        .tabs-wrapper {
-            background: white;
-            padding: 0;
-            margin-top: -1px;
-        }
-        
-        .tabs-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .nav-tabs-custom {
-            display: flex;
-            justify-content: center;
-            border-bottom: 2px solid #e2e8f0;
-            overflow-x: auto;
-            flex-wrap: wrap;
-        }
-        
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #64748b;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-        
-        .tab-btn.active {
-            color: #714b67;
-            border-bottom-color: #714b67;
-            background: rgba(113,75,103,0.05);
-        }
-        
-        .tab-btn:hover {
-            color: #714b67;
-        }
-        
-        .tab-content-wrapper {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-        }
-        
-        .tab-pane {
-            display: none;
-            padding: 3rem 0;
-        }
-        
-        .tab-pane.active {
-            display: block;
-        }
-        
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #718096;
-            margin-bottom: 3rem;
-        }
-        
-        /* Feature Cards */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #714b67;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-        
-        .feature-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #714b67, #8b5a8c);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin: 0;
-        }
-        
-        .feature-description {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 1rem;
-        }
-        
-        .feature-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.5rem;
-            color: #4a5568;
-        }
-        
-        .feature-list i {
-            color: #48bb78;
-            font-size: 0.9rem;
-        }
-        
-        /* Screenshot Cards */
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .screenshot-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .screenshot-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .screenshot-preview {
-            height: 250px;
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .screenshot-content {
-            padding: 1.5rem;
-        }
-        
-        .screenshot-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
-        }
-        
-        .screenshot-description {
-            color: #4a5568;
-            font-size: 0.95rem;
-        }
-        
-        /* Technical Specs */
-        .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .spec-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #714b67;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .spec-card:hover {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        
-        .spec-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .spec-description {
-            color: #718096;
-        }
-        
-        .spec-details {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-            display: none;
-        }
-        
-        .spec-details.active {
-            display: block;
-        }
-        
-        .spec-details ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .spec-details li {
-            margin-bottom: 0.5rem;
-            color: #4a5568;
-        }
-        
-        .spec-details i {
-            color: #48bb78;
-            font-size: 0.8rem;
-            margin-right: 8px;
-        }
-        
-        /* Availability Cards */
-        .availability-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .availability-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .availability-card.available {
-            border-top: 4px solid #48bb78;
-        }
-        
-        .availability-card.unavailable {
-            border-top: 4px solid #e53e3e;
-        }
-        
-        .availability-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .availability-icon.available {
-            background: #48bb78;
-        }
-        
-        .availability-icon.unavailable {
-            background: #e53e3e;
-        }
-        
-        .availability-card h3 {
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-        
-        .availability-card p {
-            color: #4a5568;
-            margin-bottom: 1rem;
-        }
-        
-        .availability-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-top: 1rem;
-        }
-        
-        .availability-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.5rem;
-            color: #4a5568;
-        }
-        
-        /* Company Section */
-        .company-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-        
-        .company-card {
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 12px;
-        }
-        
-        .company-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .company-card p {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-        
-        .company-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .company-card li {
-            margin-bottom: 0.5rem;
-            color: #4a5568;
-        }
-        
-        .company-card i.fa-check {
-            color: #48bb78;
-            margin-right: 8px;
-        }
-        
-        /* Footer */
-        .app-footer {
-            background: #1a202c;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .footer-links a {
-            color: #cbd5e0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .modal-header {
-            padding: 2rem;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #64748b;
-            transition: color 0.3s ease;
-        }
-        
-        .modal-close:hover {
-            color: #2d3748;
-        }
-        
-        .modal-body {
-            padding: 2rem;
-        }
-        
-        .modal-img {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-description {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .feature-grid,
-            .screenshot-grid,
-            .spec-grid,
-            .availability-grid,
-            .company-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
-<!-- Header -->
-<header class="app-header">
-    <div class="header-container">
-        <div class="header-content">
-            <div class="logo-section">
-                <img src="https://spopli.com/wp-content/uploads/2020/09/logo.png" alt="Spopli Logo" class="logo-img">
-                <div class="company-info">
-                    <h1>Spopli Web Development</h1>
-                    <div class="badge-partner">
-                        <i class="fab fa-odoo"></i> Official Odoo Partner
+<body style="font-family: 'Poppins', sans-serif; background-color: #f5f7fa; margin: 0; padding: 0;">
+
+<!-- Company Header -->
+<section class="container-fluid" style="background: linear-gradient(135deg, #714b67 0%, #8b5a8c 100%); padding: 20px 0;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="d-flex align-items-center">
+                    <img src="https://spopli.com/wp-content/uploads/2020/09/logo.png" alt="Spopli" style="height: 60px; background: white; padding: 8px; border-radius: 10px; margin-right: 15px;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-weight: 600;">Spopli Web Development</h4>
+                        <span style="background: rgba(255,255,255,0.2); color: white; padding: 3px 12px; border-radius: 20px; font-size: 13px; display: inline-block; margin-top: 5px;">
+                            <i class="fab fa-odoo"></i> Official Odoo Partner
+                        </span>
                     </div>
                 </div>
             </div>
-            <div class="contact-links">
-                <a href="tel:+912562275457">
-                    <i class="fas fa-phone"></i> +91 2562 275457
-                </a>
-                <a href="mailto:chintu2411@gmail.com">
-                    <i class="fas fa-envelope"></i> chintu2411@gmail.com
-                </a>
+            <div class="col-md-6 text-end">
+                <div style="color: white;">
+                    <div style="margin-bottom: 8px;">
+                        <i class="fas fa-phone"></i> <a href="tel:+912562275457" style="color: white; text-decoration: none;">+91 2562 275457</a>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i> <a href="mailto:chintu2411@gmail.com" style="color: white; text-decoration: none;">chintu2411@gmail.com</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</header>
+</section>
 
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-container">
-        <div class="hero-icons">
-            <div class="icon-box">
-                <img src="https://i.postimg.cc/8P6stwtw/icon.png" alt="Module Icon">
+<!-- Hero Banner -->
+<section class="container-fluid" style="background: linear-gradient(135deg, #714b67 0%, #8b5a8c 100%); padding: 60px 0; text-align: center;">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-auto">
+                <div style="background: white; border-radius: 20px; padding: 20px; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="https://i.postimg.cc/8P6stwtw/icon.png" alt="Icon" style="width: 100px; height: 100px;">
+                </div>
             </div>
-            <div class="icon-plus">+</div>
-            <div class="icon-box" style="padding: 20px;">
-                <img src="https://www.odoo.com/web/image/website/1/social_default_image?unique=6f0a220" alt="Odoo Logo">
+            <div class="col-auto d-flex align-items-center">
+                <span style="color: white; font-size: 40px; opacity: 0.7;">+</span>
+            </div>
+            <div class="col-auto">
+                <div style="background: white; border-radius: 20px; padding: 20px; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <img src="https://www.odoo.com/web/image/website/1/social_default_image?unique=6f0a220" alt="Odoo" style="width: 100px; height: 100px; object-fit: contain;">
+                </div>
             </div>
         </div>
-        <div class="hero-badge">
+        
+        <div style="background: rgba(255,255,255,0.2); color: white; padding: 8px 20px; border-radius: 25px; display: inline-block; margin-bottom: 20px; font-size: 14px;">
             <i class="fab fa-odoo"></i> Odoo 18 POS Module
         </div>
-        <h1 class="hero-title">POS Manual Amount Entry</h1>
-        <p class="hero-description">
-            Revolutionary Point of Sale module that allows cashiers to enter amounts in any currency and automatically calculate product quantities. Perfect for retail businesses dealing with weight-based products, bulk items, and flexible pricing scenarios.
+        
+        <h1 style="color: white; font-size: 48px; font-weight: 700; margin-bottom: 20px;">POS Manual Amount Entry</h1>
+        
+        <p style="color: rgba(255,255,255,0.95); font-size: 20px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            Revolutionary Point of Sale module that allows cashiers to enter amounts in any currency and automatically calculate product quantities.
         </p>
     </div>
 </section>
 
-<!-- Tabs Container -->
-<div class="tabs-wrapper">
-    <div class="tabs-container">
-        <div class="nav-tabs-custom">
-            <button class="tab-btn active" onclick="showTab('features', this)">
-                <i class="fas fa-star"></i> Features
-            </button>
-            <button class="tab-btn" onclick="showTab('screenshots', this)">
-                <i class="fas fa-images"></i> Screenshots
-            </button>
-            <button class="tab-btn" onclick="showTab('technical', this)">
-                <i class="fas fa-cogs"></i> Technical Specs
-            </button>
-            <button class="tab-btn" onclick="showTab('availability', this)">
-                <i class="fas fa-cloud"></i> Availability
-            </button>
-            <button class="tab-btn" onclick="showTab('company', this)">
-                <i class="fas fa-building"></i> About Us
-            </button>
+<!-- Main Content Container -->
+<div class="container my-5">
+    
+    <!-- Navigation Tabs -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <ul class="nav nav-pills justify-content-center" style="border-bottom: 2px solid #e9ecef; padding-bottom: 0;">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="pill" href="#features" style="color: #714b67; border-bottom: 3px solid #714b67; border-radius: 0; font-weight: 600; padding: 15px 30px;">
+                        <i class="fas fa-star"></i> Features
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#screenshots" style="color: #6c757d; border-bottom: 3px solid transparent; border-radius: 0; font-weight: 600; padding: 15px 30px;">
+                        <i class="fas fa-images"></i> Screenshots
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#technical" style="color: #6c757d; border-bottom: 3px solid transparent; border-radius: 0; font-weight: 600; padding: 15px 30px;">
+                        <i class="fas fa-cogs"></i> Technical
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#availability" style="color: #6c757d; border-bottom: 3px solid transparent; border-radius: 0; font-weight: 600; padding: 15px 30px;">
+                        <i class="fas fa-cloud"></i> Availability
+                    </a>
+                </li>
+            </ul>
         </div>
+    </div>
 
-        <div class="tab-content-wrapper">
-            <!-- Features Tab -->
-            <div id="features" class="tab-pane active">
-                <h2 class="section-title">Powerful Real-World Features</h2>
-                <p class="section-subtitle">Built for modern retail operations with practical functionality that works with any currency</p>
-                
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <h3 class="feature-title">Smart Amount-Based Entry</h3>
+    <!-- Tab Content -->
+    <div class="tab-content">
+        
+        <!-- Features Tab -->
+        <div class="tab-pane fade show active" id="features">
+            <div class="text-center mb-5">
+                <h2 style="font-size: 36px; font-weight: 700; color: #2d3748; margin-bottom: 15px;">Powerful Real-World Features</h2>
+                <p style="color: #718096; font-size: 18px;">Built for modern retail operations with practical functionality</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Feature Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid #714b67; height: 100%;">
+                        <div style="background: linear-gradient(135deg, #714b67, #8b5a8c); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-calculator" style="color: white; font-size: 24px;"></i>
                         </div>
-                        <p class="feature-description">Enter purchase amounts in any currency and let the system automatically calculate the exact quantity needed. Perfect for weight-based products like fruits, vegetables, spices, and bulk items sold by measurement.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Multi-currency amount input</li>
-                            <li><i class="fas fa-check"></i> Automatic quantity calculation</li>
-                            <li><i class="fas fa-check"></i> Real-time price validation</li>
-                            <li><i class="fas fa-check"></i> Instant order line updates</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <i class="fas fa-weight"></i>
-                            </div>
-                            <h3 class="feature-title">Weight & Bulk Products</h3>
-                        </div>
-                        <p class="feature-description">Specially designed for businesses selling products by weight, volume, or measurement. Enter the customer's budget and instantly get the exact quantity they can purchase within their spending limit.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Weight-based calculations (kg/gram)</li>
-                            <li><i class="fas fa-check"></i> Volume measurements (liters/ml)</li>
-                            <li><i class="fas fa-check"></i> Decimal quantity precision</li>
-                            <li><i class="fas fa-check"></i> Flexible price per unit handling</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <h3 class="feature-title">Multi-Currency Support</h3>
-                        </div>
-                        <p class="feature-description">Works seamlessly with any currency configured in your Odoo system. From USD to EUR, INR to GBP - the module adapts to your local currency settings automatically without any additional configuration.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Auto-detects system currency</li>
-                            <li><i class="fas fa-check"></i> Supports 100+ currencies</li>
-                            <li><i class="fas fa-check"></i> Decimal precision handling</li>
-                            <li><i class="fas fa-check"></i> Regional formatting rules</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h3 class="feature-title">Touch-Optimized Interface</h3>
-                        </div>
-                        <p class="feature-description">Designed with touch devices in mind, featuring large buttons and intuitive interface. Works perfectly on tablets, POS terminals, and mobile devices with responsive design that adapts to any screen size.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Large touch-friendly buttons</li>
-                            <li><i class="fas fa-check"></i> Responsive mobile design</li>
-                            <li><i class="fas fa-check"></i> Tablet-optimized layout</li>
-                            <li><i class="fas fa-check"></i> Fast input methods</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <h3 class="feature-title">Real-Time Processing</h3>
-                        </div>
-                        <p class="feature-description">Lightning-fast calculations and instant order updates with comprehensive error handling. No delays in your checkout process - calculations happen instantly as soon as amounts are entered.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Instant mathematical calculations</li>
-                            <li><i class="fas fa-check"></i> Live order line updates</li>
-                            <li><i class="fas fa-check"></i> Comprehensive error prevention</li>
-                            <li><i class="fas fa-check"></i> Zero latency processing</li>
-                        </ul>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3 class="feature-title">Robust Validation & Safety</h3>
-                        </div>
-                        <p class="feature-description">Advanced input validation and error handling ensures data integrity and prevents calculation errors. Built-in safeguards protect against invalid inputs and system errors with user-friendly messaging.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Input validation & sanitization</li>
-                            <li><i class="fas fa-check"></i> User-friendly error messages</li>
-                            <li><i class="fas fa-check"></i> Data integrity protection</li>
-                            <li><i class="fas fa-check"></i> Fail-safe error handling</li>
+                        <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 15px;">Smart Amount Entry</h4>
+                        <p style="color: #4a5568; line-height: 1.7;">Enter purchase amounts in any currency and let the system automatically calculate the exact quantity needed.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Multi-currency input</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Auto calculation</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Real-time updates</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <!-- Screenshots Tab -->
-            <div id="screenshots" class="tab-pane">
-                <h2 class="section-title">See It In Action</h2>
-                <p class="section-subtitle">Click on any screenshot to view detailed information</p>
-                
-                <div class="screenshot-grid">
-                    <div class="screenshot-card" onclick="openScreenshotModal('pos-interface')">
-                        <div class="screenshot-preview">
-                            <img src="https://i.postimg.cc/YSxT4Sw4/1.png" alt="POS Interface" style="width: 90%; height: 90%; object-fit: cover; border-radius: 8px;">
+                <!-- Feature Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid #714b67; height: 100%;">
+                        <div style="background: linear-gradient(135deg, #714b67, #8b5a8c); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-weight" style="color: white; font-size: 24px;"></i>
                         </div>
-                        <div class="screenshot-content">
-                            <h4 class="screenshot-title">
-                                POS Interface Integration <i class="fas fa-external-link-alt" style="font-size: 0.8rem; color: #714b67;"></i>
-                            </h4>
-                            <p class="screenshot-description">Seamlessly integrated "Enter Amount" button in the Odoo 18 POS interface, positioned for easy access during checkout.</p>
-                        </div>
-                    </div>
-
-                    <div class="screenshot-card" onclick="openScreenshotModal('amount-entry')">
-                        <div class="screenshot-preview">
-                            <img src="https://i.postimg.cc/B6Qk2Gqm/2.png" alt="Amount Entry" style="width: 90%; height: 90%; object-fit: cover; border-radius: 8px;">
-                        </div>
-                        <div class="screenshot-content">
-                            <h4 class="screenshot-title">
-                                Amount Entry Popup <i class="fas fa-external-link-alt" style="font-size: 0.8rem; color: #714b67;"></i>
-                            </h4>
-                            <p class="screenshot-description">Clean, user-friendly popup for entering amounts with proper validation and confirmation buttons.</p>
-                        </div>
-                    </div>
-
-                    <div class="screenshot-card" onclick="openScreenshotModal('auto-calculation')">
-                        <div class="screenshot-preview">
-                            <img src="https://i.postimg.cc/0QW3fHjP/3.png" alt="Auto Calculation" style="width: 90%; height: 90%; object-fit: cover; border-radius: 8px;">
-                        </div>
-                        <div class="screenshot-content">
-                            <h4 class="screenshot-title">
-                                Automatic Calculation <i class="fas fa-external-link-alt" style="font-size: 0.8rem; color: #714b67;"></i>
-                            </h4>
-                            <p class="screenshot-description">Real-time quantity calculation based on entered amount and product price, with instant order line updates.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Specs Tab -->
-            <div id="technical" class="tab-pane">
-                <h2 class="section-title">Technical Specifications</h2>
-                <p class="section-subtitle">Click on any specification to view detailed information</p>
-                
-                <div class="spec-grid">
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fab fa-odoo"></i> Odoo Version
-                        </h4>
-                        <p class="spec-description">Specifically designed and tested for Odoo 18 with full compatibility</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Odoo 18.0 Community Edition</li>
-                                <li><i class="fas fa-check"></i> Odoo 18.0 Enterprise Edition</li>
-                                <li><i class="fas fa-check"></i> Backward compatible with 17.0</li>
-                                <li><i class="fas fa-check"></i> Future-ready architecture</li>
-                                <li><i class="fas fa-check"></i> Tested on latest stable release</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-code"></i> Framework
-                        </h4>
-                        <p class="spec-description">Built with OWL Framework, JavaScript ES6+, and modern web standards</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> OWL (Odoo Web Library) Framework</li>
-                                <li><i class="fas fa-check"></i> JavaScript ES6+ syntax</li>
-                                <li><i class="fas fa-check"></i> XML templating system</li>
-                                <li><i class="fas fa-check"></i> Python backend integration</li>
-                                <li><i class="fas fa-check"></i> Modern web standards compliance</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-database"></i> Dependencies
-                        </h4>
-                        <p class="spec-description">Requires: base, point_of_sale modules (standard Odoo modules)</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> base (Odoo core module)</li>
-                                <li><i class="fas fa-check"></i> point_of_sale (POS module)</li>
-                                <li><i class="fas fa-check"></i> web (Web framework)</li>
-                                <li><i class="fas fa-check"></i> No external dependencies</li>
-                                <li><i class="fas fa-check"></i> Lightweight installation</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-paint-brush"></i> UI Framework
-                        </h4>
-                        <p class="spec-description">Bootstrap 5 with custom CSS for seamless Odoo integration</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Bootstrap 5 responsive grid</li>
-                                <li><i class="fas fa-check"></i> Custom CSS animations</li>
-                                <li><i class="fas fa-check"></i> Odoo theme integration</li>
-                                <li><i class="fas fa-check"></i> Touch-optimized controls</li>
-                                <li><i class="fas fa-check"></i> Cross-browser compatibility</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-key"></i> License
-                        </h4>
-                        <p class="spec-description">LGPL-3 License - Open source and commercially friendly</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> LGPL-3 Open Source License</li>
-                                <li><i class="fas fa-check"></i> Commercial use allowed</li>
-                                <li><i class="fas fa-check"></i> Modification permitted</li>
-                                <li><i class="fas fa-check"></i> Distribution allowed</li>
-                                <li><i class="fas fa-check"></i> No warranty disclaimer</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-download"></i> Installation
-                        </h4>
-                        <p class="spec-description">One-click installation through Odoo Apps or manual upload</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Odoo Apps Store installation</li>
-                                <li><i class="fas fa-check"></i> Manual ZIP file upload</li>
-                                <li><i class="fas fa-check"></i> Git repository cloning</li>
-                                <li><i class="fas fa-check"></i> Automatic dependency resolution</li>
-                                <li><i class="fas fa-check"></i> No server restart required</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-language"></i> Localization
-                        </h4>
-                        <p class="spec-description">Supports Multi-currency amount input with decimal precision</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Decimal precision handling</li>
-                                <li><i class="fas fa-check"></i> Multi-currency compatibility</li>
-                                <li><i class="fas fa-check"></i> Regional number formatting</li>
-                                <li><i class="fas fa-check"></i> Translation ready</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-card" onclick="toggleSpecDetails(this)">
-                        <h4 class="spec-title">
-                            <i class="fas fa-users"></i> Multi-User
-                        </h4>
-                        <p class="spec-description">Supports multiple POS sessions and concurrent users</p>
-                        <div class="spec-details">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Multiple POS sessions</li>
-                                <li><i class="fas fa-check"></i> Concurrent user support</li>
-                                <li><i class="fas fa-check"></i> Session isolation</li>
-                                <li><i class="fas fa-check"></i> User permission control</li>
-                                <li><i class="fas fa-check"></i> Real-time synchronization</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Availability Tab -->
-            <div id="availability" class="tab-pane">
-                <h2 class="section-title">Platform Availability</h2>
-                <p class="section-subtitle">Choose your preferred Odoo deployment option</p>
-                
-                <div class="availability-grid">
-                    <div class="availability-card available">
-                        <div class="availability-icon available">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h3>On-Premise Odoo</h3>
-                        <p>Perfect for self-hosted Odoo installations with full control and customization options. Easy installation and configuration.</p>
-                        <ul class="availability-list">
-                            <li><i class="fas fa-check" style="color: #48bb78;"></i> Full customization control</li>
-                            <li><i class="fas fa-check" style="color: #48bb78;"></i> No restrictions</li>
-                            <li><i class="fas fa-check" style="color: #48bb78;"></i> Direct file access</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="availability-card available">
-                        <div class="availability-icon available">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h3>Odoo SH (Odoo.sh)</h3>
-                        <p>Fully compatible with Odoo SH cloud platform for seamless deployment and automatic updates.</p>
-                        <ul class="availability-list">
-                            <li><i class="fas fa-check" style="color: #48bb78;"></i> Cloud deployment</li>
-                            <li><i class="fas fa-check" style="color: #48bb78;"></i> Automatic backups</li>
-                            <li><i class="fas fa-check" style="color: #48bb78;"></i> Easy updates</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="availability-card unavailable">
-                        <div class="availability-icon unavailable">
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <h3>Odoo Online</h3>
-                        <p>Currently not available for Odoo Online due to platform restrictions on custom JavaScript modules.</p>
-                        <ul class="availability-list">
-                            <li><i class="fas fa-times" style="color: #e53e3e;"></i> Platform restrictions</li>
-                            <li><i class="fas fa-times" style="color: #e53e3e;"></i> Limited JS support</li>
-                            <li><i class="fas fa-times" style="color: #e53e3e;"></i> Not compatible</li>
+                        <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 15px;">Weight & Bulk Products</h4>
+                        <p style="color: #4a5568; line-height: 1.7;">Perfect for businesses selling products by weight, volume, or measurement units.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Weight calculations</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Volume measurements</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Decimal precision</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <!-- Company Tab -->
-            <div id="company" class="tab-pane">
-                <h2 class="section-title">About Spopli Web Development & Services</h2>
-                <p class="section-subtitle">Your trusted Odoo Ready partner for custom development and solutions</p>
-                
-                <div class="company-grid">
-                    <div class="company-card">
-                        <h3><i class="fas fa-building"></i> Company Overview</h3>
-                        <p>Spopli Web Development & Services is a certified Odoo Ready Partner specializing in custom module development, implementation, and comprehensive support services. We help businesses optimize their operations with tailored Odoo solutions.</p>
-                    </div>
-                    
-                    <div class="company-card">
-                        <h3><i class="fas fa-phone"></i> Contact Information</h3>
-                        <div style="color: #4a5568; margin-bottom: 0.5rem;">
-                            <i class="fas fa-phone" style="margin-right: 8px;"></i> Phone: (+91) 2562 275457
+                <!-- Feature Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid #714b67; height: 100%;">
+                        <div style="background: linear-gradient(135deg, #714b67, #8b5a8c); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-globe" style="color: white; font-size: 24px;"></i>
                         </div>
-                        <div style="color: #4a5568; margin-bottom: 0.5rem;">
-                            <i class="fas fa-envelope" style="margin-right: 8px;"></i> chintu2411@gmail.com
-                        </div>
-                        <div style="color: #4a5568; margin-bottom: 0.5rem;">
-                            <i class="fas fa-globe" style="margin-right: 8px;"></i> https://spopli.com
-                        </div>
-                    </div>
-                    
-                    <div class="company-card">
-                        <h3><i class="fas fa-cogs"></i> Our Services</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Custom Odoo Module Development</li>
-                            <li><i class="fas fa-check"></i> Odoo Implementation</li>
-                            <li><i class="fas fa-check"></i> Technical Support & Maintenance</li>
-                            <li><i class="fas fa-check"></i> Odoo Training & Consultation</li>
+                        <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 15px;">Multi-Currency Support</h4>
+                        <p style="color: #4a5568; line-height: 1.7;">Works seamlessly with any currency configured in your Odoo system.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Auto-detects currency</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> 100+ currencies</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Regional formatting</li>
                         </ul>
                     </div>
-                    
-                    <div class="company-card">
-                        <h3><i class="fab fa-odoo"></i> Odoo Partnership</h3>
-                        <p>As an official Odoo Ready partner, we provide certified solutions and maintain the highest standards of quality and compatibility. Our modules are tested and optimized for production environments.</p>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid #714b67; height: 100%;">
+                        <div style="background: linear-gradient(135deg, #714b67, #8b5a8c); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-mobile-alt" style="color: white; font-size: 24px;"></i>
+                        </div>
+                        <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 15px;">Touch-Optimized</h4>
+                        <p style="color: #4a5568; line-height: 1.7;">Designed for touch devices with large buttons and intuitive interface.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Touch-friendly buttons</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Responsive design</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Tablet optimized</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature Card 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid #714b67; height: 100%;">
+                        <div style="background: linear-gradient(135deg, #714b67, #8b5a8c); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-bolt" style="color: white; font-size: 24px;"></i>
+                        </div>
+                        <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 15px;">Real-Time Processing</h4>
+                        <p style="color: #4a5568; line-height: 1.7;">Lightning-fast calculations with instant order updates.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Instant calculations</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Live updates</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Zero latency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature Card 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid #714b67; height: 100%;">
+                        <div style="background: linear-gradient(135deg, #714b67, #8b5a8c); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-shield-alt" style="color: white; font-size: 24px;"></i>
+                        </div>
+                        <h4 style="font-weight: 600; color: #2d3748; margin-bottom: 15px;">Robust Validation</h4>
+                        <p style="color: #4a5568; line-height: 1.7;">Advanced input validation ensures data integrity and prevents errors.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Input validation</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Error prevention</li>
+                            <li style="color: #4a5568; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: #48bb78; margin-right: 8px;"></i> Data integrity</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Screenshots Tab -->
+        <div class="tab-pane fade" id="screenshots">
+            <div class="text-center mb-5">
+                <h2 style="font-size: 36px; font-weight: 700; color: #2d3748; margin-bottom: 15px;">See It In Action</h2>
+                <p style="color: #718096; font-size: 18px;">Visual walkthrough of the module functionality</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Screenshot 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <img src="https://i.postimg.cc/YSxT4Sw4/1.png" alt="POS Interface" style="width: 100%; height: auto;">
+                        <div style="padding: 25px;">
+                            <h5 style="font-weight: 600; color: #2d3748; margin-bottom: 10px;">POS Interface Integration</h5>
+                            <p style="color: #718096; margin: 0;">Seamlessly integrated "Enter Amount" button in the Odoo 18 POS interface.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screenshot 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <img src="https://i.postimg.cc/B6Qk2Gqm/2.png" alt="Amount Entry" style="width: 100%; height: auto;">
+                        <div style="padding: 25px;">
+                            <h5 style="font-weight: 600; color: #2d3748; margin-bottom: 10px;">Amount Entry Popup</h5>
+                            <p style="color: #718096; margin: 0;">Clean popup for entering amounts with validation and confirmation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screenshot 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <img src="https://i.postimg.cc/0QW3fHjP/3.png" alt="Calculation" style="width: 100%; height: auto;">
+                        <div style="padding: 25px;">
+                            <h5 style="font-weight: 600; color: #2d3748; margin-bottom: 10px;">Automatic Calculation</h5>
+                            <p style="color: #718096; margin: 0;">Real-time quantity calculation based on amount and price.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Tab -->
+        <div class="tab-pane fade" id="technical">
+            <div class="text-center mb-5">
+                <h2 style="font-size: 36px; font-weight: 700; color: #2d3748; margin-bottom: 15px;">Technical Specifications</h2>
+                <p style="color: #718096; font-size: 18px;">Detailed technical information</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border-left: 4px solid #714b67;">
+                        <h5 style="color: #2d3748; font-weight: 600; margin-bottom: 10px;"><i class="fab fa-odoo"></i> Odoo Version</h5>
+                        <p style="color: #718096; margin: 0;">Odoo 18.0 Community & Enterprise</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border-left: 4px solid #714b67;">
+                        <h5 style="color: #2d3748; font-weight: 600; margin-bottom: 10px;"><i class="fas fa-code"></i> Framework</h5>
+                        <p style="color: #718096; margin: 0;">OWL Framework, JavaScript ES6+</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border-left: 4px solid #714b67;">
+                        <h5 style="color: #2d3748; font-weight: 600; margin-bottom: 10px;"><i class="fas fa-database"></i> Dependencies</h5>
+                        <p style="color: #718096; margin: 0;">base, point_of_sale modules</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border-left: 4px solid #714b67;">
+                        <h5 style="color: #2d3748; font-weight: 600; margin-bottom: 10px;"><i class="fas fa-key"></i> License</h5>
+                        <p style="color: #718096; margin: 0;">LGPL-3 Open Source</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border-left: 4px solid #714b67;">
+                        <h5 style="color: #2d3748; font-weight: 600; margin-bottom: 10px;"><i class="fas fa-download"></i> Installation</h5>
+                        <p style="color: #718096; margin: 0;">One-click from Odoo Apps</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.08); border-left: 4px solid #714b67;">
+                        <h5 style="color: #2d3748; font-weight: 600; margin-bottom: 10px;"><i class="fas fa-users"></i> Multi-User</h5>
+                        <p style="color: #718096; margin: 0;">Multiple POS sessions support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Availability Tab -->
+        <div class="tab-pane fade" id="availability">
+            <div class="text-center mb-5">
+                <h2 style="font-size: 36px; font-weight: 700; color: #2d3748; margin-bottom: 15px;">Platform Availability</h2>
+                <p style="color: #718096; font-size: 18px;">Choose your Odoo deployment option</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- On-Premise -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #48bb78;">
+                        <div style="background: #48bb78; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fas fa-check" style="color: white; font-size: 30px;"></i>
+                        </div>
+                        <h4 style="color: #2d3748; font-weight: 600; margin-bottom: 15px;">On-Premise Odoo</h4>
+                        <p style="color: #718096;">Perfect for self-hosted installations with full control.</p>
+                    </div>
+                </div>
+                
+                <!-- Odoo SH -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #48bb78;">
+                        <div style="background: #48bb78; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fas fa-check" style="color: white; font-size: 30px;"></i>
+                        </div>
+                        <h4 style="color: #2d3748; font-weight: 600; margin-bottom: 15px;">Odoo SH (Odoo.sh)</h4>
+                        <p style="color: #718096;">Fully compatible with Odoo SH cloud platform.</p>
+                    </div>
+                </div>
+                
+                <!-- Odoo Online -->
+                <div class="col-md-6 col-lg-4">
+                    <div style="background: white; border-radius: 15px; padding: 30px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #e53e3e;">
+                        <div style="background: #e53e3e; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fas fa-times" style="color: white; font-size: 30px;"></i>
+                        </div>
+                        <h4 style="color: #2d3748; font-weight: 600; margin-bottom: 15px;">Odoo Online</h4>
+                        <p style="color: #718096;">Not available due to platform restrictions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!-- Screenshot Modal -->
-<div id="screenshotModal" class="modal-overlay">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3 id="modalTitle">Screenshot Details</h3>
-            <button class="modal-close" onclick="closeModal()">&times;</button>
+<!-- Company Info Section -->
+<section class="container my-5">
+    <div style="background: linear-gradient(135deg, #714b67 0%, #8b5a8c 100%); border-radius: 15px; padding: 40px; color: white;">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 style="font-weight: 600; margin-bottom: 20px;">About Spopli Web Development</h3>
+                <p style="line-height: 1.7; opacity: 0.95;">Certified Odoo Ready Partner specializing in custom module development, implementation, and comprehensive support services.</p>
+            </div>
+            <div class="col-md-6">
+                <h4 style="font-weight: 600; margin-bottom: 15px;">Our Services</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 8px;"></i> Custom Module Development</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 8px;"></i> Odoo Implementation</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 8px;"></i> Technical Support</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 8px;"></i> Training & Consultation</li>
+                </ul>
+            </div>
         </div>
-        <div id="modalBody" class="modal-body"></div>
     </div>
-</div>
+</section>
 
 <!-- Footer -->
-<footer class="app-footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div>
-                <p>&copy; 2024 Spopli Web Development & Services. All rights reserved.</p>
+<footer style="background: #1a202c; color: white; padding: 30px 0; text-align: center;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-md-start">
+                <p style="margin: 0;">&copy; 2024 Spopli Web Development & Services. All rights reserved.</p>
             </div>
-            <div class="footer-links">
-                <a href="https://spopli.com">Website</a>
-                <a href="mailto:chintu2411@gmail.com">Support</a>
-                <a href="tel:+912562275457">Contact</a>
+            <div class="col-md-6 text-md-end">
+                <a href="https://spopli.com" style="color: #cbd5e0; text-decoration: none; margin: 0 15px;">Website</a>
+                <a href="mailto:chintu2411@gmail.com" style="color: #cbd5e0; text-decoration: none; margin: 0 15px;">Support</a>
+                <a href="tel:+912562275457" style="color: #cbd5e0; text-decoration: none; margin: 0 15px;">Contact</a>
             </div>
         </div>
     </div>
@@ -1135,114 +391,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-function showTab(tabName, clickedTab) {
-    // Hide all tab panes
-    document.querySelectorAll('.tab-pane').forEach(pane => {
-        pane.classList.remove('active');
+// Tab styling on click
+document.querySelectorAll('.nav-link').forEach(tab => {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.nav-link').forEach(t => {
+            t.style.color = '#6c757d';
+            t.style.borderBottom = '3px solid transparent';
+        });
+        this.style.color = '#714b67';
+        this.style.borderBottom = '3px solid #714b67';
     });
-    
-    // Remove active class from all tabs
-    document.querySelectorAll('.tab-btn').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // Show selected tab pane
-    const selectedPane = document.getElementById(tabName);
-    if (selectedPane) {
-        selectedPane.classList.add('active');
-    }
-    
-    // Add active class to clicked tab
-    if (clickedTab) {
-        clickedTab.classList.add('active');
-    }
-}
-
-function toggleSpecDetails(element) {
-    const details = element.querySelector('.spec-details');
-    const isActive = details.classList.contains('active');
-    
-    // Close all other spec details
-    document.querySelectorAll('.spec-details').forEach(detail => {
-        detail.classList.remove('active');
-    });
-    
-    // Toggle current spec details
-    if (!isActive) {
-        details.classList.add('active');
-    }
-}
-
-const screenshotData = {
-    'pos-interface': {
-        title: 'POS Interface Integration',
-        content: `<img src="https://i.postimg.cc/YSxT4Sw4/1.png" alt="POS Interface" class="modal-img">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #714b67;">
-                <h5 style="font-weight: 600; margin-bottom: 0.5rem; color: #2d3748;"><i class="fas fa-mouse-pointer"></i> Button Placement</h5>
-                <p>The "Enter Amount" button is strategically placed in the POS interface for easy access during checkout operations.</p>
-            </div>
-        </div>`
-    },
-    'amount-entry': {
-        title: 'Amount Entry Popup',
-        content: `<img src="https://i.postimg.cc/B6Qk2Gqm/2.png" alt="Amount Entry Popup" class="modal-img">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #714b67;">
-                <h5 style="font-weight: 600; margin-bottom: 0.5rem; color: #2d3748;"><i class="fas fa-keyboard"></i> Input Validation</h5>
-                <p>Real-time validation ensures only valid numeric amounts can be entered, preventing calculation errors.</p>
-            </div>
-        </div>`
-    },
-    'auto-calculation': {
-        title: 'Automatic Calculation',
-        content: `<img src="https://i.postimg.cc/0QW3fHjP/3.png" alt="Auto Calculation" class="modal-img">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #714b67;">
-                <h5 style="font-weight: 600; margin-bottom: 0.5rem; color: #2d3748;"><i class="fas fa-calculator"></i> Real-time Math</h5>
-                <p>Instant calculation of quantity based on entered amount and product price with high precision arithmetic.</p>
-            </div>
-        </div>`
-    }
-};
-
-function openScreenshotModal(screenshotId) {
-    const modal = document.getElementById('screenshotModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const data = screenshotData[screenshotId];
-    
-    if (data) {
-        modalTitle.textContent = data.title;
-        modalBody.innerHTML = data.content;
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeModal() {
-    const modal = document.getElementById('screenshotModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Close modal when clicking outside
-document.getElementById('screenshotModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeModal();
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// Initialize first tab on page load
-document.addEventListener('DOMContentLoaded', function() {
-    showTab('features', document.querySelector('.tab-btn.active'));
 });
 </script>
 
