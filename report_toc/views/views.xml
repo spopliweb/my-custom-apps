@@ -1,0 +1,65 @@
+<odoo>
+    <record id="view_report_toc_form" model="ir.ui.view">
+        <field name="name">report.toc.form</field>
+        <field name="model">report.toc</field>
+        <field name="arch" type="xml">
+            <form string="Report TOC">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="insert_page"/>
+                        <field name="main_report_id"/>
+                        <field name="toc_report_id"/>
+                        <field name="footer_content"/>
+                        <field name="active"/>
+                    </group>
+
+                    <notebook>
+                        <page string="TOC Headings">
+                            <field name="toc_line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="toc_heading"/>
+                                    <field name="search_heading"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_report_toc_list" model="ir.ui.view">
+        <field name="name">report.toc.list</field>
+        <field name="model">report.toc</field>
+        <field name="arch" type="xml">
+            <list string="Report TOC">
+                <field name="name"/>
+                <field name="main_report_id"/>
+                <field name="toc_report_id"/>
+                <field name="insert_page"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_report_toc" model="ir.actions.act_window">
+        <field name="name">Report TOC</field>
+        <field name="res_model">report.toc</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Table of Contents definitions for PDF reports.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_report_toc"
+            name="Table of Contents"
+            parent="base.reporting_menuitem"
+            action="action_report_toc"
+            sequence="10"/>
+
+
+</odoo>
