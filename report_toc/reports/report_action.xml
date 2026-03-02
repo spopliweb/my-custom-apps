@@ -1,0 +1,9 @@
+<odoo>
+    <record id="action_report_toc_report" model="ir.actions.report">
+        <field name="name">Table of Contents Template</field>
+        <field name="model">report.toc</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">report_toc.report_toc_template</field>
+        <field name="report_file">report_toc.report_toc_template</field>
+    </record>
+</odoo>
