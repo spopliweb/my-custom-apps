@@ -1,501 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app index</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Manual Amount Entry - Odoo 18 Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 </head>
+<body style="font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#333;background-color:#f8fafc;margin:0;padding:0;box-sizing:border-box">
 
-<body style="font-family: &quot;Montserrat&quot;, sans-serif;background-color: #71639e08;">
-
-    <!-- ══ SUPPORT BAR — exact Cybrosys pattern ══ -->
-    <div class="container-fluid cmpad">
-        <div class="supports my-3 py-3" style="border: 2px solid #e9ecef; padding: 0 35px; border-radius: 10px; background-color: white;">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-3">
-                    <div class="my-3 mx-auto mx-sm-0" style="width: 250px;">
-                        <img src="https://spopli.com/wp-content/uploads/2020/09/logo.png" style="width: 100%;">
+<!-- Header -->
+<header style="background:linear-gradient(135deg,#714b67 0%,#8b5a8c 100%);color:white;padding:1rem 0;box-shadow:0 2px 10px rgba(0,0,0,0.1)">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px">
+            <div style="display:flex;align-items:center;gap:15px">
+                <img src="assets/screenshot/logo.png" alt="Spopli Logo" style="height:50px;width:auto;background:white;padding:5px;border-radius:8px">
+                <div style="display:flex;flex-direction:column;gap:2px">
+                    <div style="font-size:1.3rem;font-weight:600">Spopli Web Development</div>
+                    <div style="background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:12px;font-size:0.8rem;display:inline-flex;align-items:center;gap:5px;width:fit-content">
+                        <i class="fab fa-odoo"></i> Official Odoo Partner
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="row">
-                        <div class="my-3 d-flex align-items-center justify-content-center justify-content-sm-end">
-                            <span class="me-3"><b>Supports: </b></span>
-                            <div class="text-center" style="background-color: #714b67 !important; font-size: 1rem !important; color: #fff !important; font-weight: 500 !important; padding: 8px !important; margin: 0 3px !important; border-radius: 50px !important; min-width: 130px !important;">
-                                Community
-                            </div>
-                            <div class="text-center" style="background-color: #714b67 !important; font-size: 1rem !important; color: #fff !important; font-weight: 500 !important; padding: 8px !important; margin: 0 3px !important; border-radius: 50px !important; min-width: 130px !important;">
-                                Enterprise
-                            </div>
+            </div>
+            <div style="display:flex;gap:20px;font-size:0.9rem;flex-wrap:wrap">
+                <a href="tel:+912562275457" style="color:white;text-decoration:none;display:flex;align-items:center;gap:5px">
+                    <i class="fas fa-phone"></i> +91 2562 275457
+                </a>
+                <a href="mailto:chintu2411@gmail.com" style="color:white;text-decoration:none;display:flex;align-items:center;gap:5px">
+                    <i class="fas fa-envelope"></i> chintu2411@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section style="background:linear-gradient(135deg,#714b67 0%,#8b5a8c 100%);color:white;padding:4rem 0;text-align:center">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+        <div style="display:flex;justify-content:center;align-items:center;gap:30px;margin-bottom:2rem;flex-wrap:wrap">
+            <div style="width:120px;height:120px;background:white;border-radius:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.2);padding:10px">
+                <img src="icon.png" alt="Module Icon" style="width:100%;height:auto">
+            </div>
+            <div style="font-size:2rem;opacity:0.7">+</div>
+            <div style="width:120px;height:120px;background:white;border-radius:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.2);padding:15px">
+                <img src="assets/screenshot/odoo-Ready Partner Logo.png" alt="Odoo Logo" style="width:100%;height:auto">
+            </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.2);padding:0.5rem 1rem;border-radius:25px;font-size:0.9rem;margin-bottom:2rem;display:inline-block">
+            <i class="fab fa-odoo"></i> Odoo 18 POS Module
+        </div>
+        <h1 style="font-size:3rem;font-weight:700;margin-bottom:1rem">POS Manual Amount Entry</h1>
+        <p style="font-size:1.2rem;opacity:0.9;margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto">
+            Revolutionary Point of Sale module that allows cashiers to enter amounts in any currency and automatically calculate product quantities. Perfect for retail businesses dealing with weight-based products, bulk items, and flexible pricing scenarios.
+        </p>
+    </div>
+</section>
+
+<!-- Tabs Container -->
+<div style="background:white;padding:0;margin-top:-1px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+        <div style="display:flex;justify-content:center;border-bottom:2px solid #e2e8f0;overflow-x:auto">
+            <button class="tab active" onclick="showTab('features', this)" style="padding:1rem 2rem;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:#714b67;border-bottom:3px solid #714b67;transition:all 0.3s ease;white-space:nowrap;background:rgba(113,75,103,0.05)">
+                <i class="fas fa-star"></i> Features
+            </button>
+            <button class="tab" onclick="showTab('screenshots', this)" style="padding:1rem 2rem;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:#64748b;border-bottom:3px solid transparent;transition:all 0.3s ease;white-space:nowrap">
+                <i class="fas fa-images"></i> Screenshots
+            </button>
+            <button class="tab" onclick="showTab('technical', this)" style="padding:1rem 2rem;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:#64748b;border-bottom:3px solid transparent;transition:all 0.3s ease;white-space:nowrap">
+                <i class="fas fa-cogs"></i> Technical Specs
+            </button>
+            <button class="tab" onclick="showTab('availability', this)" style="padding:1rem 2rem;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:#64748b;border-bottom:3px solid transparent;transition:all 0.3s ease;white-space:nowrap">
+                <i class="fas fa-cloud"></i> Availability
+            </button>
+            <button class="tab" onclick="showTab('company', this)" style="padding:1rem 2rem;background:none;border:none;cursor:pointer;font-size:1rem;font-weight:500;color:#64748b;border-bottom:3px solid transparent;transition:all 0.3s ease;white-space:nowrap">
+                <i class="fas fa-building"></i> About Us
+            </button>
+        </div>
+
+        <!-- Features Tab -->
+        <div id="features" class="tab-content" style="display:block;padding:3rem 0">
+            <h2 style="text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:#2d3748">Powerful Real-World Features</h2>
+            <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Built for modern retail operations with practical functionality</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin-top:2rem">
+                <div style="background:white;padding:2.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;border-left:4px solid #714b67">
+                    <div style="display:flex;align-items:center;gap:15px;margin-bottom:1.5rem">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#714b67,#8b5a8c);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;flex-shrink:0">
+                            <i class="fas fa-calculator"></i>
                         </div>
+                        <h3 style="font-size:1.3rem;font-weight:600;color:#2d3748;margin:0">Smart Amount-Based Entry</h3>
                     </div>
-                    <div class="row" style="margin-top: 10px; display: flex; justify-content: end; float: right;">
-                        <div class="d-flex align-items-center justify-content-end flex-wrap gap-2">
-                            <span class="me-3"><b>Availability: </b></span>
-                            <div class="d-flex align-items-center justify-content-center gap-2 text-center col" style="border: 2px solid #ebebeb; font-size: 1rem !important; color: #333 !important; font-weight: 500 !important; padding: 8px !important; margin: 0 3px !important; border-radius: 20px !important; min-width: 150px !important;">
-                                <img src="https://www.iconsdb.com/icons/preview/red/close-xxl.png" alt="" width="18" height="18">
-                                Odoo Online
-                            </div>
-                            <div class="d-flex align-items-center justify-content-center gap-2 text-center col" style="border: 2px solid #ebebeb; font-size: 1rem !important; color: #333 !important; font-weight: 500 !important; padding: 8px !important; margin: 0 3px !important; border-radius: 20px !important; min-width: 150px !important;">
-                                <img src="https://www.iconsdb.com/icons/preview/green/checkmark-xxl.png" alt="" width="18" height="18">
-                                Odoo.sh
-                            </div>
-                            <div class="d-flex align-items-center justify-content-center gap-2 text-center col" style="border: 2px solid #ebebeb; font-size: 1rem !important; color: #333 !important; font-weight: 500 !important; padding: 8px !important; margin: 0 3px !important; border-radius: 20px !important; min-width: 150px !important;">
-                                <img src="https://www.iconsdb.com/icons/preview/green/checkmark-xxl.png" alt="" width="18" height="18">
-                                On Premise
-                            </div>
+                    <p style="color:#4a5568;line-height:1.6">Enter purchase amounts in any currency and let the system automatically calculate the exact quantity needed. Perfect for weight-based products like fruits, vegetables, spices, and bulk items.</p>
+                    <ul style="list-style:none;padding:0;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Multi-currency amount input
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Automatic quantity calculation
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Real-time price validation
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Instant order line updates
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background:white;padding:2.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;border-left:4px solid #714b67">
+                    <div style="display:flex;align-items:center;gap:15px;margin-bottom:1.5rem">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#714b67,#8b5a8c);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;flex-shrink:0">
+                            <i class="fas fa-weight"></i>
                         </div>
+                        <h3 style="font-size:1.3rem;font-weight:600;color:#2d3748;margin:0">Weight & Bulk Products</h3>
+                    </div>
+                    <p style="color:#4a5568;line-height:1.6">Specially designed for businesses selling products by weight, volume, or measurement. Enter the customer's budget and instantly get the exact quantity they can purchase.</p>
+                    <ul style="list-style:none;padding:0;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Weight-based calculations (kg/gram)
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Volume measurements (liters/ml)
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Decimal quantity precision
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Flexible price per unit handling
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background:white;padding:2.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;border-left:4px solid #714b67">
+                    <div style="display:flex;align-items:center;gap:15px;margin-bottom:1.5rem">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#714b67,#8b5a8c);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;flex-shrink:0">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 style="font-size:1.3rem;font-weight:600;color:#2d3748;margin:0">Multi-Currency Support</h3>
+                    </div>
+                    <p style="color:#4a5568;line-height:1.6">Works seamlessly with any currency configured in your Odoo system. From USD to EUR, INR to GBP - the module adapts automatically.</p>
+                    <ul style="list-style:none;padding:0;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Auto-detects system currency
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Supports 100+ currencies
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Decimal precision handling
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Regional formatting rules
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background:white;padding:2.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;border-left:4px solid #714b67">
+                    <div style="display:flex;align-items:center;gap:15px;margin-bottom:1.5rem">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#714b67,#8b5a8c);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;flex-shrink:0">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 style="font-size:1.3rem;font-weight:600;color:#2d3748;margin:0">Touch-Optimized Interface</h3>
+                    </div>
+                    <p style="color:#4a5568;line-height:1.6">Designed with touch devices in mind, featuring large buttons and intuitive interface. Works perfectly on tablets and POS terminals.</p>
+                    <ul style="list-style:none;padding:0;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Large touch-friendly buttons
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Responsive mobile design
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Tablet-optimized layout
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Fast input methods
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background:white;padding:2.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;border-left:4px solid #714b67">
+                    <div style="display:flex;align-items:center;gap:15px;margin-bottom:1.5rem">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#714b67,#8b5a8c);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;flex-shrink:0">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 style="font-size:1.3rem;font-weight:600;color:#2d3748;margin:0">Real-Time Processing</h3>
+                    </div>
+                    <p style="color:#4a5568;line-height:1.6">Lightning-fast calculations and instant order updates with comprehensive error handling. No delays in checkout.</p>
+                    <ul style="list-style:none;padding:0;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Instant mathematical calculations
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Live order line updates
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Comprehensive error prevention
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Zero latency processing
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background:white;padding:2.5rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;border-left:4px solid #714b67">
+                    <div style="display:flex;align-items:center;gap:15px;margin-bottom:1.5rem">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#714b67,#8b5a8c);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;flex-shrink:0">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 style="font-size:1.3rem;font-weight:600;color:#2d3748;margin:0">Robust Validation & Safety</h3>
+                    </div>
+                    <p style="color:#4a5568;line-height:1.6">Advanced input validation and error handling ensures data integrity and prevents calculation errors.</p>
+                    <ul style="list-style:none;padding:0;margin-top:1rem">
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Input validation & sanitization
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> User-friendly error messages
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Data integrity protection
+                        </li>
+                        <li style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;color:#4a5568">
+                            <i class="fas fa-check" style="color:#48bb78;font-size:0.9rem"></i> Fail-safe error handling
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots Tab -->
+        <div id="screenshots" class="tab-content" style="display:none;padding:3rem 0">
+            <h2 style="text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:#2d3748">See It In Action</h2>
+            <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Real screenshots from the module</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem">
+                <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+                    <div style="padding:20px;">
+                        <img src="assets/screenshot/1.png" alt="POS Interface" style="width:100%;height:auto;border-radius:8px;border:2px solid #e7e7e7;">
+                    </div>
+                    <div style="padding:1.5rem">
+                        <h4 style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;color:#2d3748">POS Interface Integration</h4>
+                        <p style="color:#4a5568;margin:0">Seamlessly integrated "Enter Amount" button in the Odoo 18 POS interface.</p>
+                    </div>
+                </div>
+
+                <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+                    <div style="padding:20px;">
+                        <img src="assets/screenshot/2.png" alt="Amount Entry" style="width:100%;height:auto;border-radius:8px;border:2px solid #e7e7e7;">
+                    </div>
+                    <div style="padding:1.5rem">
+                        <h4 style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;color:#2d3748">Amount Entry Popup</h4>
+                        <p style="color:#4a5568;margin:0">Clean, user-friendly popup for entering amounts with validation.</p>
+                    </div>
+                </div>
+
+                <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+                    <div style="padding:20px;">
+                        <img src="assets/screenshot/3.png" alt="Calculation" style="width:100%;height:auto;border-radius:8px;border:2px solid #e7e7e7;">
+                    </div>
+                    <div style="padding:1.5rem">
+                        <h4 style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;color:#2d3748">Automatic Calculation</h4>
+                        <p style="color:#4a5568;margin:0">Real-time quantity calculation based on entered amount and price.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Specs Tab -->
+        <div id="technical" class="tab-content" style="display:none;padding:3rem 0">
+            <h2 style="text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:#2d3748">Technical Specifications</h2>
+            <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Complete technical details</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem">
+                <div style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748"><i class="fab fa-odoo"></i> Odoo Version</h4>
+                    <p style="color:#718096;margin:0">Odoo 18.0 (Community & Enterprise)</p>
+                </div>
+                
+                <div style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748"><i class="fas fa-code"></i> Framework</h4>
+                    <p style="color:#718096;margin:0">OWL, JavaScript ES6+, Python</p>
+                </div>
+                
+                <div style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748"><i class="fas fa-database"></i> Dependencies</h4>
+                    <p style="color:#718096;margin:0">base, point_of_sale, web</p>
+                </div>
+                
+                <div style="background:white;padding:2rem;border-radius:12px;border-left:4px solid #714b67;box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                    <h4 style="font-weight:600;margin-bottom:0.5rem;color:#2d3748"><i class="fas fa-key"></i> License</h4>
+                    <p style="color:#718096;margin:0">LGPL-3 Open Source</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Availability Tab -->
+        <div id="availability" class="tab-content" style="display:none;padding:3rem 0">
+            <h2 style="text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:#2d3748">Platform Availability</h2>
+            <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Choose your preferred deployment</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem">
+                <div style="background:white;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);border-top:4px solid #48bb78">
+                    <div style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:white;background:#48bb78">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 style="margin:0 0 1rem 0">On-Premise Odoo</h3>
+                    <p style="color:#4a5568;margin:0">Perfect for self-hosted installations with full control.</p>
+                </div>
+                
+                <div style="background:white;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);border-top:4px solid #48bb78">
+                    <div style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:white;background:#48bb78">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 style="margin:0 0 1rem 0">Odoo SH (Odoo.sh)</h3>
+                    <p style="color:#4a5568;margin:0">Fully compatible with Odoo SH cloud platform.</p>
+                </div>
+                
+                <div style="background:white;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);border-top:4px solid #e53e3e">
+                  <div style="width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:white;background:#e53e3e">
+                      <i class="fas fa-times"></i>
+                  </div>
+                  <h3 style="margin:0 0 1rem 0">Odoo Online</h3>
+                  <p style="color:#4a5568;margin:0">Not available due to platform restrictions.</p>
+              </div>
+            </div>
+        </div>
+
+        <!-- Company Tab -->
+        <div id="company" class="tab-content" style="display:none;padding:3rem 0">
+            <h2 style="text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:1rem;color:#2d3748">About Spopli Web Development</h2>
+            <p style="text-align:center;font-size:1.1rem;color:#718096;margin-bottom:3rem">Your trusted Odoo Ready partner</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem">
+                <div style="background:#f7fafc;padding:2rem;border-radius:12px;">
+                    <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748"><i class="fas fa-building"></i> Company Overview</h3>
+                    <p style="color:#4a5568;margin:0">Spopli Web Development & Services is a certified Odoo Ready Partner specializing in custom module development.</p>
+                </div>
+                
+                <div style="background:#f7fafc;padding:2rem;border-radius:12px;">
+                    <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748"><i class="fas fa-phone"></i> Contact</h3>
+                    <div style="color:#4a5568;line-height:2;">
+                        <i class="fas fa-phone"></i> (+91) 2562 275457<br>
+                        <i class="fas fa-envelope"></i> chintu2411@gmail.com<br>
+                        <i class="fas fa-globe"></i> https://spopli.com
+                    </div>
+                </div>
+                
+                <div style="background:#f7fafc;padding:2rem;border-radius:12px;">
+                    <h3 style="font-size:1.3rem;margin-bottom:1rem;color:#2d3748"><i class="fas fa-cogs"></i> Services</h3>
+                    <div style="color:#4a5568;line-height:2;">
+                        <i class="fas fa-check" style="color:#48bb78"></i> Custom Module Development<br>
+                        <i class="fas fa-check" style="color:#48bb78"></i> Odoo Implementation<br>
+                        <i class="fas fa-check" style="color:#48bb78"></i> Technical Support<br>
+                        <i class="fas fa-check" style="color:#48bb78"></i> Training & Consultation
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- ══ HERO — exact Cybrosys pattern ══ -->
-    <div class="container-fluid cmpad text-center py-5 py-md-3">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Icon boxes like Cybrosys -->
-                <div class="d-flex justify-content-center align-items-center gap-3 mb-4 flex-wrap">
-                    <div style="width: 100px; height: 100px; background: white; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(113,75,103,0.2); padding: 12px;">
-                        <img src="https://i.postimg.cc/8P6stwtw/icon.png" style="width: 100%; height: auto;">
-                    </div>
-                    <span style="font-size: 2rem; color: #714b67; opacity: 0.4;">+</span>
-                    <div style="width: 100px; height: 100px; background: white; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(113,75,103,0.2); padding: 12px;">
-                        <img src="https://www.odoo.com/web/image/website/1/social_default_image?unique=6f0a220" style="width: 100%; height: auto; object-fit: contain;">
-                    </div>
-                </div>
-
-                <h3 class="mainhead" style="font-size: 2.3rem; padding-top: 1rem; font-weight: 700; color: black;">
-                    POS Manual Amount Entry</h3>
-                <p class="para mb-4" style="font-size: 20px; color: #6b7280;">Enter any amount, automatically calculate exact product quantity in POS.</p>
-
-                <div class="d-flex justify-content-center gap-1 flex-wrap">
-                    <a href="mailto:chintu2411@gmail.com"
-                        class="contact-btn email-btn d-flex align-items-center gap-2 justify-content-center"
-                        style="position: relative; padding: 15px 25px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; text-decoration: none; color: white; cursor: pointer; min-width: 200px; justify-content: center; background-color: #4facfe">
-                        <i class="fas fa-envelope" style="font-size: 18px;"></i>
-                        <span class="btn-text" style="font-size: 15px; letter-spacing: 0.5px;">Email Us</span>
-                    </a>
-
-                    <a href="https://wa.me/912562275457"
-                        class="contact-btn whatsapp-btn d-flex align-items-center gap-2 justify-content-center"
-                        style="position: relative; padding: 15px 25px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; text-decoration: none; color: white; cursor: pointer; min-width: 200px; justify-content: center; background-color: #25d366;">
-                        <i class="fab fa-whatsapp" style="font-size: 22px;"></i>
-                        <span class="btn-text" style="font-size: 15px; letter-spacing: 0.5px;">+91 2562 275457</span>
-                    </a>
-
-                    <a href="https://spopli.com"
-                        class="contact-btn d-flex align-items-center gap-2 justify-content-center"
-                        style="position: relative; padding: 15px 25px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; text-decoration: none; color: white; cursor: pointer; min-width: 200px; justify-content: center; background-color: #714b67;">
-                        <i class="fas fa-globe" style="font-size: 18px;"></i>
-                        <span class="btn-text" style="font-size: 15px; letter-spacing: 0.5px;">spopli.com</span>
-                    </a>
-                </div>
-            </div>
+<!-- Footer -->
+<footer style="background:#1a202c;color:white;padding:2rem 0;text-align:center;margin-top:3rem">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+        <p style="margin:0 0 1rem 0">&copy; 2024 Spopli Web Development & Services. All rights reserved.</p>
+        <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap">
+            <a href="https://spopli.com" style="color:#cbd5e0;text-decoration:none">Website</a>
+            <a href="mailto:chintu2411@gmail.com" style="color:#cbd5e0;text-decoration:none">Support</a>
+            <a href="tel:+912562275457" style="color:#cbd5e0;text-decoration:none">Contact</a>
         </div>
     </div>
+</footer>
 
-    <!-- ══ BLOG + VIDEO CARDS — exact Cybrosys pattern ══ -->
-    <div class="container-fluid cmpad py-2 py-md-5">
-        <div class="row">
-            <div class="col-md-6 mb-3 mb-md-0">
-                <div class="content-card blog-card h-100" style="background-color: #8b5cf612; border: 2px solid #8a5cf615; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; overflow: hidden;">
-                    <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                        style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #8B5CF6;">
-                        <i class="fas fa-book-open" style="color: white; font-size: 22px;"></i>
-                    </div>
-                    <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; margin-bottom: 12px; letter-spacing: -0.025em;">Read Blog</h3>
-                    <p class="card-description mb-3" style="font-size: 16px; color: #6b7280; margin-bottom: 0; line-height: 1.6;">Dive into our comprehensive blog posts covering the latest Odoo POS features and best practices.</p>
-                    <a href="https://spopli.com" class="card-action d-flex align-items-center justify-content-center gap-2"
-                        style="padding: 10px 20px; border-radius: 8px; font-weight: 500; font-size: 15px; text-decoration: none; border: none; width: max-content; background-color: #9e6390; color: white; transition: .3s;">
-                        <i class="fas fa-external-link-alt" style="font-size: 14px;"></i>
-                        Read Article
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="content-card video-card h-100" style="background-color: #ef444421; border: 2px solid #ef44441f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; overflow: hidden;">
-                    <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                        style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #EF4444;">
-                        <i class="fas fa-play" style="color: white; font-size: 20px;"></i>
-                    </div>
-                    <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; margin-bottom: 12px; letter-spacing: -0.025em;">Video Tutorial</h3>
-                    <p class="card-description mb-3" style="font-size: 16px; color: #6b7280; margin-bottom: 0; line-height: 1.6;">Watch our detailed video demonstrations and tutorials on YouTube for hands-on learning.</p>
-                    <a href="https://youtube.com" class="card-action video-action d-flex align-items-center justify-content-center gap-2"
-                        style="padding: 10px 20px; border-radius: 8px; font-weight: 500; font-size: 15px; text-decoration: none; border: none; width: max-content; background-color: #9e6390; color: white; transition: .3s;">
-                        <i class="fab fa-youtube" style="font-size: 16px;"></i>
-                        Watch Demo
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+<script>
+function showTab(tabName, clickedTab) {
+    document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.style.color = '#64748b';
+        tab.style.borderBottomColor = 'transparent';
+        tab.style.background = 'none';
+    });
+    const selectedContent = document.getElementById(tabName);
+    if (selectedContent) selectedContent.style.display = 'block';
+    if (clickedTab) {
+        clickedTab.style.color = '#714b67';
+        clickedTab.style.borderBottomColor = '#714b67';
+        clickedTab.style.background = 'rgba(113,75,103,0.05)';
+    }
+}
 
-    <!-- ══ KEY HIGHLIGHTS — exact Cybrosys pattern ══ -->
-    <div class="container-fluid cmpad py-2 py-md-5">
-        <div class="highlights-section">
-            <h2 class="mainhead text-center" style="font-size: 2rem; font-weight: 700; color: black;">Key <span>Highlights</span></h2>
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-md-4 mb-4">
-                    <div class="highlight-card h-100" style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-puzzle-piece" style="color: white; font-size: 24px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; margin-bottom: 12px; letter-spacing: -0.025em;">Compatible</h3>
-                        <p class="card-description" style="font-size: 16px; color: #6b7280; margin-bottom: 0; line-height: 1.6;">Available in Odoo 18.0 Community and Enterprise.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="highlight-card h-100" style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-feather-alt" style="color: white; font-size: 24px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; margin-bottom: 12px; letter-spacing: -0.025em;">Easiness</h3>
-                        <p class="card-description" style="font-size: 16px; color: #6b7280; margin-bottom: 0; line-height: 1.6;">Simply enter any amount and get the exact product quantity automatically.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="highlight-card h-100" style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-bolt" style="color: white; font-size: 24px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; margin-bottom: 12px; letter-spacing: -0.025em;">Real-Time</h3>
-                        <p class="card-description" style="font-size: 16px; color: #6b7280; margin-bottom: 0; line-height: 1.6;">Instant zero-latency calculations at the checkout counter.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ══ TABS — exact Cybrosys pattern ══ -->
-    <div class="container-fluid cmpad py-2 py-md-5">
-        <div class="tabs-design1">
-            <ul class="nav nav-pills justify-content-start justify-content-md-center pb-4"
-                style="flex-flow: nowrap; overflow: hidden; overflow-x: auto;"
-                id="pills1" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="screenshot-tab" data-bs-toggle="pill" data-bs-target="#screenshot"
-                        type="button" role="tab"
-                        style="width: max-content; border-radius: 50px; margin: 0 5px; padding: 12px 24px; font-weight: 500; border: 2px solid #e9ecef; position: relative;">
-                        Screenshot
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="features-tab" data-bs-toggle="pill" data-bs-target="#features"
-                        type="button" role="tab"
-                        style="width: max-content; border-radius: 50px; margin: 0 5px; padding: 12px 24px; font-weight: 500; border: 2px solid #e9ecef; position: relative;">
-                        Features
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="faq-tab" data-bs-toggle="pill" data-bs-target="#faq"
-                        type="button" role="tab"
-                        style="width: max-content; border-radius: 50px; margin: 0 5px; padding: 12px 24px; font-weight: 500; border: 2px solid #e9ecef; position: relative;">
-                        Frequent Questions
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="latest-release-tab" data-bs-toggle="pill" data-bs-target="#latest-release"
-                        type="button" role="tab"
-                        style="width: max-content; border-radius: 50px; margin: 0 5px; padding: 12px 24px; font-weight: 500; border: 2px solid #e9ecef; position: relative;">
-                        Latest Release
-                    </a>
-                </li>
-            </ul>
-
-            <div class="tab-content bg-white rounded-4" style="border: 2px solid #e9ecef; border-radius: 10px;" id="pills1Content">
-
-                <!-- ── SCREENSHOT TAB ── -->
-                <div class="tab-pane fade show active" id="screenshot" role="tabpanel">
-                    <div class="p-3 py-md-5">
-
-                        <h2 class="mainhead text-center mb-2" style="font-size: 2rem; font-weight: 700; color: black;">
-                            Step 1 — <span>POS Interface</span></h2>
-                        <div class="para" style="max-width: 80%; text-align: center; margin: auto; font-size: 18px; margin-bottom: 2rem; color: #6b7280;">
-                            The "Enter Amount" button integrated directly inside the Odoo 18 POS session.
-                        </div>
-                        <div style="border-radius: 10px; overflow: hidden; border: 2px solid #e7e7e7;">
-                            <img src="https://i.postimg.cc/YSxT4Sw4/1.png" alt="" style="max-width: 100%; height: auto;">
-                        </div>
-
-                        <h2 class="mainhead text-center mb-2 mt-5" style="font-size: 2rem; font-weight: 700; color: black;">
-                            Step 2 — <span>Amount Entry Popup</span></h2>
-                        <div class="para" style="max-width: 80%; text-align: center; margin: auto; font-size: 18px; margin-bottom: 2rem; color: #6b7280;">
-                            A clean popup lets the cashier type any amount with real-time validation and confirmation.
-                        </div>
-                        <div style="border-radius: 10px; overflow: hidden; border: 2px solid #e7e7e7;">
-                            <img src="https://i.postimg.cc/B6Qk2Gqm/2.png" alt="" style="max-width: 100%; height: auto;">
-                        </div>
-
-                        <h2 class="mainhead text-center mb-2 mt-5" style="font-size: 2rem; font-weight: 700; color: black;">
-                            Step 3 — <span>Automatic Calculation</span></h2>
-                        <div class="para" style="max-width: 80%; text-align: center; margin: auto; font-size: 18px; margin-bottom: 2rem; color: #6b7280;">
-                            Order line quantity instantly updated based on entered amount ÷ unit price.
-                        </div>
-                        <div style="border-radius: 10px; overflow: hidden; border: 2px solid #e7e7e7;">
-                            <img src="https://i.postimg.cc/0QW3fHjP/3.png" alt="" style="max-width: 100%; height: auto;">
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- ── FEATURES TAB ── -->
-                <div class="tab-pane fade" id="features" role="tabpanel">
-                    <div class="p-3 py-md-5">
-                        <h2 class="mainhead text-center mb-4" style="font-size: 2rem; font-weight: 700; color: black;">Our <span>Features</span></h2>
-                        <div class="row" style="border-radius: 10px;">
-                            <div class="col-md-4">
-                                <div class="feature-item mb-4 d-flex flex-column align-items-center justify-content-center"
-                                    style="padding: 25px; background-color: #637eea0d; border-radius: 10px; text-align: left;">
-                                    <div class="feature-number d-flex align-items-center justify-content-center"
-                                        style="width: 45px; height: 45px; background-color: #7877c633; border-radius: 50%; font-size: 1.2rem; font-weight: 600; color: #714b67; margin-bottom: 15px;">01</div>
-                                    <h3 class="feature-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0; color: black; line-height: 1.3;">Available in Odoo 18.0 Community and Enterprise</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="feature-item mb-4 d-flex flex-column align-items-center justify-content-center"
-                                    style="padding: 25px; background-color: #637eea0d; border-radius: 10px; text-align: left;">
-                                    <div class="feature-number d-flex align-items-center justify-content-center"
-                                        style="width: 45px; height: 45px; background-color: #7877c633; border-radius: 50%; font-size: 1.2rem; font-weight: 600; color: #714b67; margin-bottom: 15px;">02</div>
-                                    <h3 class="feature-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0; color: black; line-height: 1.3;">Enter any amount — auto calculate product quantity</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="feature-item mb-4 d-flex flex-column align-items-center justify-content-center"
-                                    style="padding: 25px; background-color: #637eea0d; border-radius: 10px; text-align: left;">
-                                    <div class="feature-number d-flex align-items-center justify-content-center"
-                                        style="width: 45px; height: 45px; background-color: #7877c633; border-radius: 50%; font-size: 1.2rem; font-weight: 600; color: #714b67; margin-bottom: 15px;">03</div>
-                                    <h3 class="feature-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0; color: black; line-height: 1.3;">Supports weight, volume and all unit types</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="feature-item mb-4 d-flex flex-column align-items-center justify-content-center"
-                                    style="padding: 25px; background-color: #637eea0d; border-radius: 10px; text-align: left;">
-                                    <div class="feature-number d-flex align-items-center justify-content-center"
-                                        style="width: 45px; height: 45px; background-color: #7877c633; border-radius: 50%; font-size: 1.2rem; font-weight: 600; color: #714b67; margin-bottom: 15px;">04</div>
-                                    <h3 class="feature-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0; color: black; line-height: 1.3;">Multi-currency — 100+ currencies supported</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="feature-item mb-4 d-flex flex-column align-items-center justify-content-center"
-                                    style="padding: 25px; background-color: #637eea0d; border-radius: 10px; text-align: left;">
-                                    <div class="feature-number d-flex align-items-center justify-content-center"
-                                        style="width: 45px; height: 45px; background-color: #7877c633; border-radius: 50%; font-size: 1.2rem; font-weight: 600; color: #714b67; margin-bottom: 15px;">05</div>
-                                    <h3 class="feature-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0; color: black; line-height: 1.3;">Touch-optimized for tablets and POS terminals</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="feature-item mb-4 d-flex flex-column align-items-center justify-content-center"
-                                    style="padding: 25px; background-color: #637eea0d; border-radius: 10px; text-align: left;">
-                                    <div class="feature-number d-flex align-items-center justify-content-center"
-                                        style="width: 45px; height: 45px; background-color: #7877c633; border-radius: 50%; font-size: 1.2rem; font-weight: 600; color: #714b67; margin-bottom: 15px;">06</div>
-                                    <h3 class="feature-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0; color: black; line-height: 1.3;">Input validation and robust error handling</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── FAQ TAB ── -->
-                <div class="tab-pane fade" id="faq" role="tabpanel">
-                    <div class="p-3 py-md-5">
-                        <h2 class="mainhead text-center mb-4" style="font-size: 2rem; font-weight: 700; color: black;">Frequently Asked <span>Questions</span></h2>
-                        <div class="modern-accordion">
-                            <div class="accordion accordion-flush" id="accordionFlushExample">
-
-                                <div class="accordion-item loading-animation"
-                                    style="margin-bottom: 1rem; overflow: hidden; background-color: white; border: 2px solid #e2e8f0 !important; border-radius: 10px !important;">
-                                    <h2 class="accordion-header" style="border-radius: 10px;">
-                                        <a class="accordion-button collapsed" type="button"
-                                            style="box-shadow: unset; border: none !important; padding: 1.5rem 2rem !important; font-weight: 600 !important; font-size: 1.1rem; color: #714b67 !important; background-color: #e3e3f3a9 !important; position: relative; overflow: hidden;"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                            aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Can I enter any currency amount?
-                                        </a>
-                                    </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionFlushExample" style="border-top: 1px solid #e2e8f0;">
-                                        <div class="accordion-body"
-                                            style="background-color: rgba(99, 102, 241, 0.02); line-height: 1.6; font-size: 1rem; padding: 2rem !important;">
-                                            Yes! The module reads the currency configured in your Odoo POS session. The quantity is calculated using the product's unit price and the amount you enter — works with any configured currency.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item loading-animation"
-                                    style="margin-bottom: 1rem; overflow: hidden; background-color: white; border: 2px solid #e2e8f0 !important; border-radius: 10px !important;">
-                                    <h2 class="accordion-header" style="border-radius: 10px;">
-                                        <a class="accordion-button collapsed" type="button"
-                                            style="box-shadow: unset; border: none !important; padding: 1.5rem 2rem !important; font-weight: 600 !important; font-size: 1.1rem; color: #714b67 !important; background-color: #e3e3f3a9 !important; position: relative; overflow: hidden;"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                            aria-expanded="false" aria-controls="flush-collapseTwo">
-                                            Does it work for non-weight products?
-                                        </a>
-                                    </h2>
-                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionFlushExample" style="border-top: 1px solid #e2e8f0;">
-                                        <div class="accordion-body"
-                                            style="background-color: rgba(99, 102, 241, 0.02); line-height: 1.6; font-size: 1rem; padding: 2rem !important;">
-                                            Absolutely. Any product in your POS catalogue works. The module divides the entered amount by unit price to compute the quantity, regardless of unit of measure.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item loading-animation"
-                                    style="margin-bottom: 0; overflow: hidden; background-color: white; border: 2px solid #e2e8f0 !important; border-radius: 10px !important;">
-                                    <h2 class="accordion-header" style="border-radius: 10px;">
-                                        <a class="accordion-button collapsed" type="button"
-                                            style="box-shadow: unset; border: none !important; padding: 1.5rem 2rem !important; font-weight: 600 !important; font-size: 1.1rem; color: #714b67 !important; background-color: #e3e3f3a9 !important; position: relative; overflow: hidden;"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                            aria-expanded="false" aria-controls="flush-collapseThree">
-                                            Multiple POS sessions simultaneously?
-                                        </a>
-                                    </h2>
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionFlushExample" style="border-top: 1px solid #e2e8f0;">
-                                        <div class="accordion-body"
-                                            style="background-color: rgba(99, 102, 241, 0.02); line-height: 1.6; font-size: 1rem; padding: 2rem !important;">
-                                            Yes. Each POS session is isolated so multiple cashiers can use the feature simultaneously without any conflict.
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── LATEST RELEASE TAB ── -->
-                <div class="tab-pane fade" id="latest-release" role="tabpanel">
-                    <div class="p-3 py-md-5">
-                        <h2 class="mainhead text-center mb-4" style="font-size: 2rem; font-weight: 700; color: black;">Latest <span>Releases</span></h2>
-                        <div class="row">
-                            <div class="col-md-4 mb-4">
-                                <div class="release-item h-100" style="position: relative; padding: 30px; border: 2px solid #71639e24; border-radius: 15px;">
-                                    <div class="release-header d-flex align-items-center flex-wrap gap-3" style="margin-bottom: 0.75rem;">
-                                        <div class="version" style="font-size: 1.25rem; font-weight: 700; color: #1a202c;">Latest Release 18.0.1.0.0</div>
-                                        <div style="padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background-color: #9ae6b4; color: #2d7d32; border: 2px solid #68d391;">Add</div>
-                                        <div class="date" style="color: #64748b; font-size: 0.875rem; font-weight: 500; gap: 0.5rem;">
-                                            <i class="fas fa-calendar-alt me-1"></i> 2024
-                                        </div>
-                                    </div>
-                                    <div class="feature-list">
-                                        <div class="feature-item p-3" style="display: flex; align-items: center; background-color: #f5f5f5e7; border-radius: 10px; text-align: left;">
-                                            <div class="feature-text" style="color: #6b7280; line-height: 1.6; font-size: 0.95rem;">Initial Commit — Smart amount-based entry with auto quantity calculation for Odoo 18 POS.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /tab-content -->
-        </div>
-    </div>
-
-    <!-- ══ OUR SERVICES — exact Cybrosys pattern ══ -->
-    <div class="container-fluid cmpad py-2 py-md-5">
-        <div class="highlights-section">
-            <h2 class="mainhead text-center" style="font-size: 2rem; font-weight: 700; color: black;">Our <span>Services</span></h2>
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-sliders-h" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Customization</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-rocket" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Implementation</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-headset" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Support</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-exchange-alt" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Migration</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-plug" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Integration</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-comments" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Consultancy</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-certificate" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Odoo Licensing</h3>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="highlight-card h-100 high d-flex flex-column justify-content-center align-items-center text-center"
-                        style="background-color: #8d76d51f; backdrop-filter: blur(20px); border-radius: 10px; padding: 32px; border: 2px solid #71639e1a; position: relative; overflow: hidden;">
-                        <div class="card-icon d-flex align-items-center justify-content-center gap-2"
-                            style="width: 60px; height: 60px; border-radius: 10px; margin-bottom: 24px; position: relative; overflow: hidden; background-color: #714b67;">
-                            <i class="fas fa-user-tie" style="color: white; font-size: 22px;"></i>
-                        </div>
-                        <h3 class="card-title" style="font-size: 20px; font-weight: 600; color: black; letter-spacing: -0.025em;">Hire Odoo Developer</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+document.addEventListener('DOMContentLoaded', function() {
+    showTab('features', document.querySelector('.tab.active'));
+});
+</script>
 
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </html>
