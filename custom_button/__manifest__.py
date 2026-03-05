@@ -19,6 +19,8 @@
         'static/description/banner.png',
         'static/description/icon.png',
     ],
+    'price': 10.0,
+    'currency': 'EUR',
     'installable': True,
     'application': True,
     'license': 'OPL-1',
