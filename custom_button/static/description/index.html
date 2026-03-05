@@ -14,16 +14,16 @@
         }
         body { font-family: 'Segoe UI', sans-serif; }
 
-        /* ── HERO ── */
-        .spopli-hero {
+        /* HERO */
+        .sp-hero {
             background: linear-gradient(135deg, #714b67 0%, #8b5a8c 100%);
             padding: 60px 20px 50px;
             text-align: center;
             color: #fff;
         }
-        .spopli-hero .badge-pill {
+        .sp-hero .badge-pill {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.20);
             color: #fff;
             border-radius: 50px;
             padding: 6px 18px;
@@ -32,496 +32,397 @@
             margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.35);
         }
-        .spopli-hero h1 {
-            font-size: 38px;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-        .spopli-hero p {
-            font-size: 16px;
-            opacity: 0.9;
-            max-width: 680px;
-            margin: 0 auto 28px;
-            line-height: 1.7;
-        }
-        .hero-icons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:30px; }
-        .hero-icons img { height:60px; }
-
-        /* ── STAT CARDS ── */
-        .stat-section {
-            background: linear-gradient(180deg, #f5eef8 0%, #fff 100%);
-            padding: 60px 20px;
-        }
-        .stat-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 28px 18px 22px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(113,75,103,0.10);
-            position: relative;
-            margin-bottom: 80px;
-        }
-        .stat-card img {
-            position: absolute;
-            top: -42px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 76px;
-            height: 76px;
-            object-fit: contain;
-        }
-        .stat-card h5 {
-            color: #4a2f44;
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        .stat-card .stat-num {
-            font-size: 22px;
-            font-weight: 800;
-            color: #714b67;
-            display: block;
-            margin-top: 4px;
-        }
-
-        /* ── WHY SECTION ── */
-        .why-section {
-            background: linear-gradient(135deg, #714b67, #8b5a8c);
-            padding: 60px 20px;
-            text-align: center;
+        .sp-hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 14px; }
+        .sp-hero p  { font-size: 15px; opacity: .9; max-width: 680px; margin: 0 auto 28px; line-height: 1.7; }
+        .sp-hero .hero-logos { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:22px; }
+        .sp-hero .hero-logos img { height:58px; object-fit:contain; }
+        .sp-btn {
+            background: rgba(255,255,255,0.15);
             color: #fff;
-            border-radius: 16px;
-            margin: 0 16px 40px;
-        }
-        .why-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 14px; }
-        .why-section p { font-size: 16px; opacity: 0.92; max-width: 700px; margin: 0 auto 24px; line-height: 1.7; }
-        .demo-link-box {
-            display: inline-flex;
-            align-items: center;
-            background: #fff;
+            border: 1px solid rgba(255,255,255,0.40);
             border-radius: 50px;
-            padding: 6px 6px 6px 20px;
-            gap: 10px;
+            padding: 10px 24px;
             text-decoration: none;
-        }
-        .demo-link-box span.label { color: #714b67; font-size: 12px; font-weight: 700; text-transform: uppercase; }
-        .demo-link-box span.url {
-            background: #714b67;
-            color: #fff;
-            padding: 7px 16px;
-            border-radius: 50px;
-            font-size: 13px;
             font-weight: 600;
-        }
-
-        /* ── SERVICES ── */
-        .services-section { padding: 60px 20px 30px; }
-        .services-section h2 {
-            font-size: 30px; font-weight: 700; color: #2c1a26;
-            text-align: center; margin-bottom: 60px; text-transform: uppercase;
-        }
-        .service-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 32px 18px 24px;
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(113,75,103,0.09);
-            position: relative;
-            margin-bottom: 80px;
-            border: 1px solid rgba(113,75,103,0.10);
-        }
-        .service-card .svc-icon {
-            width: 64px; height: 64px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: -58px auto 14px; font-size: 22px; color: #fff;
-        }
-        .service-card h6 { font-size: 15px; font-weight: 700; color: #2c1a26; margin: 0; }
-
-        /* ── SUPPORT BADGES ── */
-        .support-badges { display:flex; justify-content:flex-end; align-items:center; gap:8px; flex-wrap:wrap; padding: 16px 0; border-bottom: 1px solid #e7e7e7; margin-bottom: 24px; }
-        .support-badge {
-            font-size: 12px; font-weight: 600; padding: 5px 14px;
-            border-radius: 50px; color: #fff; min-width: 110px; text-align: center;
-        }
-
-        /* ── TABS ── */
-        .nav-tabs .nav-link {
-            color: #555; font-weight: 500; font-size: 15px;
-            border: none; border-radius: 30px;
-            padding: 10px 22px; margin: 0 3px;
-        }
-        .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-            background: #f5eef8; color: #714b67;
-            font-weight: 600; border: none;
-        }
-        .nav-tabs { border-bottom: 1px solid #eee; padding-bottom: 8px; }
-
-        /* ── FEATURE CARDS ── */
-        .feature-card {
-            background: #fff;
-            border: 1px solid #e8d5e8;
-            border-radius: 14px;
-            padding: 24px;
-            height: 100%;
-            transition: box-shadow 0.2s;
-        }
-        .feature-card .icon-wrap {
-            width: 42px; height: 42px; border-radius: 10px;
-            background: #714b67; display: flex;
-            align-items: center; justify-content: center;
-            margin-bottom: 14px; font-size: 18px; color: #fff;
-        }
-        .feature-card h5 { font-size: 16px; font-weight: 700; color: #2c1a26; margin-bottom: 8px; }
-        .feature-card p { font-size: 14px; color: #666; line-height: 1.6; margin: 0; }
-        .feature-card ul { padding-left: 18px; margin: 0; }
-        .feature-card ul li { font-size: 13px; color: #666; margin-bottom: 4px; }
-
-        /* ── SCREENSHOT BLOCK ── */
-        .screenshot-block {
-            background: #f8f5fb;
-            border-radius: 14px;
-            padding: 36px 30px;
-            margin-bottom: 28px;
-        }
-        .screenshot-block h3 { font-size: 26px; font-weight: 700; color: #2c1a26; text-align: center; margin-bottom: 10px; }
-        .screenshot-block h3 span { color: #714b67; }
-        .screenshot-block p { text-align: center; color: #777; font-size: 15px; margin-bottom: 20px; }
-        .screenshot-block .img-wrap {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.09);
-            padding: 12px;
-            text-align: center;
-        }
-        .screenshot-block .img-wrap img { max-width: 100%; height: auto; border-radius: 6px; }
-
-        /* ── FAQ ACCORDION ── */
-        .faq-item { margin-bottom: 12px; }
-        .faq-header {
-            background: #f8f5fb;
-            border: none;
-            border-radius: 10px;
-            padding: 14px 22px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            color: #4a2f44;
-            width: 100%;
-            text-align: left;
-        }
-        .faq-body {
-            background: #fff;
-            border: 1px solid #e8d5e8;
-            border-radius: 0 0 10px 10px;
-            padding: 14px 22px;
             font-size: 14px;
-            color: #666;
-            line-height: 1.7;
+            display: inline-block;
+            margin: 4px;
         }
 
-        /* ── RELEASE ── */
-        .release-card {
-            border: 2px solid rgba(113,75,103,0.15);
-            border-radius: 14px;
-            padding: 28px;
+        /* STATS */
+        .sp-stats { background: linear-gradient(180deg,#f5eef8 0%,#fff 100%); padding: 70px 20px 20px; }
+        .sp-stat-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 14px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(113,75,103,.10);
+            position: relative;
+            margin-top: 44px;
         }
-        .release-badge {
+        .sp-stat-card img {
+            position: absolute; top: -42px; left: 50%;
+            transform: translateX(-50%);
+            width: 74px; height: 74px; object-fit: contain;
+        }
+        .sp-stat-card .num { font-size: 22px; font-weight: 800; color: #714b67; display: block; margin: 6px 0 2px; }
+        .sp-stat-card .lbl { color: #4a2f44; font-size: 13px; font-weight: 600; }
+
+        /* WHY */
+        .sp-why {
+            background: linear-gradient(135deg,#714b67,#8b5a8c);
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+            border-radius: 16px;
+            margin: 10px 16px 40px;
+        }
+        .sp-why h2 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+        .sp-why p  { font-size: 15px; opacity: .92; max-width: 680px; margin: 0 auto 22px; line-height: 1.7; }
+        .sp-link-pill {
+            display: inline-flex; align-items: center;
+            background: #fff; border-radius: 50px;
+            padding: 6px 6px 6px 20px; gap: 10px; text-decoration: none;
+        }
+        .sp-link-pill .lbl { color: #714b67; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        .sp-link-pill .url { background: #714b67; color: #fff; padding: 7px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; }
+
+        /* SERVICES */
+        .sp-services { padding: 60px 20px 20px; }
+        .sp-services h2 { font-size: 28px; font-weight: 700; color: #2c1a26; text-align: center; margin-bottom: 60px; text-transform: uppercase; }
+        .sp-svc-card {
+            background: #fff; border-radius: 14px;
+            padding: 32px 14px 20px; text-align: center;
+            box-shadow: 0 4px 16px rgba(113,75,103,.09);
+            position: relative; margin-top: 44px;
+            border: 1px solid rgba(113,75,103,.10);
+        }
+        .sp-svc-icon {
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: -52px auto 14px; font-size: 20px; color: #fff;
+        }
+        .sp-svc-card h6 { font-size: 14px; font-weight: 700; color: #2c1a26; margin: 0; }
+
+        /* SUPPORTS */
+        .sp-supports {
+            display: flex; justify-content: flex-end; align-items: center;
+            gap: 8px; flex-wrap: wrap; padding: 14px 0;
+            border-bottom: 1px solid #e7e7e7; margin-bottom: 24px;
+        }
+        .sp-badge {
+            font-size: 12px; font-weight: 600; padding: 5px 14px;
+            border-radius: 50px; color: #fff; min-width: 108px; text-align: center;
+        }
+
+        /* TABS */
+        .nav-tabs { border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .nav-tabs .nav-link {
+            color: #555; font-weight: 500; font-size: 14px;
+            border: none; border-radius: 30px; padding: 9px 20px; margin: 0 2px;
+        }
+        .nav-tabs .nav-link.active,
+        .nav-tabs .nav-item.show .nav-link {
+            background: #f5eef8; color: #714b67; font-weight: 600; border: none;
+        }
+
+        /* FEATURE CARDS */
+        .sp-feat {
+            background: #fff; border: 1px solid #e8d5e8;
+            border-radius: 14px; padding: 22px; height: 100%;
+        }
+        .sp-feat .ic {
+            width: 40px; height: 40px; border-radius: 10px; background: #714b67;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 12px; font-size: 17px; color: #fff;
+        }
+        .sp-feat h5 { font-size: 15px; font-weight: 700; color: #2c1a26; margin-bottom: 7px; }
+        .sp-feat p  { font-size: 13px; color: #666; line-height: 1.6; margin: 0 0 8px; }
+        .sp-feat ul { padding-left: 17px; margin: 0; }
+        .sp-feat ul li { font-size: 12px; color: #666; margin-bottom: 3px; }
+
+        /* SCREENSHOTS */
+        .sp-shot {
+            background: #f8f5fb; border-radius: 14px;
+            padding: 32px 28px; margin-bottom: 24px;
+        }
+        .sp-shot h3 { font-size: 22px; font-weight: 700; color: #2c1a26; text-align: center; margin-bottom: 8px; }
+        .sp-shot h3 span { color: #714b67; }
+        .sp-shot p { text-align: center; color: #777; font-size: 14px; margin-bottom: 16px; }
+        .sp-shot .img-wrap {
+            background: #fff; border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.08);
+            padding: 10px; text-align: center;
+        }
+        .sp-shot .img-wrap img { max-width: 100%; height: auto; border-radius: 6px; }
+
+        /* FAQ */
+        .sp-faq { margin-bottom: 10px; }
+        .sp-faq-hdr {
+            background: #f8f5fb; border: none; border-radius: 10px;
+            padding: 13px 20px; cursor: pointer; font-weight: 600;
+            font-size: 15px; color: #4a2f44; width: 100%; text-align: left;
+        }
+        .sp-faq-body {
+            background: #fff; border: 1px solid #e8d5e8;
+            border-radius: 0 0 10px 10px; padding: 13px 20px;
+            font-size: 13px; color: #666; line-height: 1.7;
+        }
+
+        /* RELEASE */
+        .sp-release {
+            border: 2px solid rgba(113,75,103,.15);
+            border-radius: 14px; padding: 26px;
+        }
+        .sp-release-badge {
             background: #d4edda; color: #155724;
             border: 2px solid #b8d4be; border-radius: 20px;
-            padding: 3px 12px; font-size: 12px; font-weight: 700;
+            padding: 3px 12px; font-size: 11px; font-weight: 700;
         }
 
-        /* ── ABOUT ── */
-        .about-card {
-            background: #fff;
-            border: 1px solid #e8d5e8;
-            border-radius: 14px;
-            padding: 24px;
-            height: 100%;
+        /* ABOUT */
+        .sp-about {
+            background: #fff; border: 1px solid #e8d5e8;
+            border-radius: 14px; padding: 22px; height: 100%;
         }
-        .about-card h5 { font-size: 16px; font-weight: 700; color: #714b67; margin-bottom: 12px; }
-        .about-card p, .about-card a { font-size: 14px; color: #555; line-height: 1.7; }
+        .sp-about h5 { font-size: 15px; font-weight: 700; color: #714b67; margin-bottom: 10px; }
+        .sp-about p, .sp-about a { font-size: 13px; color: #555; line-height: 1.7; }
     </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
-     HERO SECTION
-════════════════════════════════════════ -->
-<div class="spopli-hero">
-    <div class="hero-icons" style="margin-bottom:20px; margin-top:0;">
-        <img src="assets/screenshot/logo.png" alt="Spopli Logo">
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<div class="sp-hero">
+    <div class="hero-logos">
+        <img src="assets/screenshot/logo.png" alt="Spopli">
         <img src="assets/screenshot/odoo-Ready Partner Logo.png" alt="Odoo Ready Partner">
         <img src="assets/screenshot/icon.png" alt="Module Icon">
     </div>
     <div class="badge-pill">Odoo 18 POS Module</div>
     <h1>POS Manual Amount Entry</h1>
-    <p>Revolutionary Point of Sale module that allows cashiers to enter amounts in any currency and automatically calculate product quantities. Perfect for retail businesses dealing with weight-based products, bulk items, and flexible pricing scenarios.</p>
-    <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-        <a href="tel:+912562275457" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.4); border-radius:50px; padding:10px 24px; text-decoration:none; font-weight:600; font-size:14px;">
-            <i class="fa fa-phone me-2"></i>+91 2562 275457
-        </a>
-        <a href="mailto:chintu2411@gmail.com" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.4); border-radius:50px; padding:10px 24px; text-decoration:none; font-weight:600; font-size:14px;">
-            <i class="fa fa-envelope me-2"></i>chintu2411@gmail.com
-        </a>
+    <p>Revolutionary Point of Sale module that allows cashiers to enter amounts in any currency and automatically calculate product quantities. Perfect for retail, weight-based products, bulk items, and flexible pricing scenarios.</p>
+    <div>
+        <a class="sp-btn" href="tel:+912562275457"><i class="fa fa-phone me-2"></i>+91 2562 275457</a>
+        <a class="sp-btn" href="mailto:chintu2411@gmail.com"><i class="fa fa-envelope me-2"></i>chintu2411@gmail.com</a>
     </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     STATS CARDS
-════════════════════════════════════════ -->
-<div class="stat-section">
+<!-- ═══════════════════════ STATS ═══════════════════════ -->
+<div class="sp-stats">
     <div class="container">
-        <div class="row justify-content-center" style="row-gap: 55px; column-gap: 20px;">
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
+        <div class="row justify-content-center" style="row-gap:55px;">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-stat-card">
                     <img src="assets/screenshot/stat-support.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">365</span>
-                        <h5>Days Free Support</h5>
+                    <div style="padding-top:8px;">
+                        <span class="num">365</span>
+                        <span class="lbl">Days Free Support</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-stat-card">
                     <img src="assets/screenshot/stat-apps.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">50+</span>
-                        <h5>Custom Apps</h5>
+                    <div style="padding-top:8px;">
+                        <span class="num">50+</span>
+                        <span class="lbl">Custom Apps</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
-                    <img src="assets/screenshot/odoo-Ready Partner Logo.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">✓</span>
-                        <h5>Odoo Ready Partner</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-stat-card">
                     <img src="assets/screenshot/stat-customers.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">500+</span>
-                        <h5>Happy Customers</h5>
+                    <div style="padding-top:8px;">
+                        <span class="num">500+</span>
+                        <span class="lbl">Happy Customers</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-stat-card">
                     <img src="assets/screenshot/stat-exp.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">8+</span>
-                        <h5>Years Experience</h5>
+                    <div style="padding-top:8px;">
+                        <span class="num">8+</span>
+                        <span class="lbl">Years Experience</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-stat-card">
                     <img src="assets/screenshot/stat-countries.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">20+</span>
-                        <h5>Countries</h5>
+                    <div style="padding-top:8px;">
+                        <span class="num">20+</span>
+                        <span class="lbl">Countries</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-stat-card">
                     <img src="assets/screenshot/stat-dev.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">15+</span>
-                        <h5>Developers</h5>
+                    <div style="padding-top:8px;">
+                        <span class="num">15+</span>
+                        <span class="lbl">Developers</span>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="stat-card">
-                    <img src="assets/screenshot/stat-industries.png" onerror="this.style.display='none'">
-                    <div style="padding-top:10px;">
-                        <span class="stat-num">10+</span>
-                        <h5>Industries Served</h5>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     BANNER
-════════════════════════════════════════ -->
-<div style="text-align:center; margin: 0 0 40px;">
+<!-- ═══════════════════════ BANNER ═══════════════════════ -->
+<div style="text-align:center; margin:40px 0;">
     <img src="assets/screenshot/banner.png" alt="Banner" style="max-width:100%; height:auto;">
 </div>
 
-<!-- ════════════════════════════════════════
-     WHY THIS MODULE
-════════════════════════════════════════ -->
-<div class="why-section">
+<!-- ═══════════════════════ WHY ═══════════════════════ -->
+<div class="sp-why">
     <h2>Why POS Manual Amount Entry?</h2>
     <p>Designed for modern retail operations with practical functionality that works with any currency. Enter any purchase amount and let the system instantly calculate the exact product quantity — perfect for fruit, vegetable, spice, and bulk stores.</p>
-    <a href="https://spopli.com" target="_blank" class="demo-link-box">
-        <span class="label">Visit Us</span>
+    <a href="https://spopli.com" target="_blank" class="sp-link-pill">
+        <span class="lbl">Visit Us</span>
         <span class="url">spopli.com</span>
     </a>
 </div>
 
-<!-- ════════════════════════════════════════
-     OUR SERVICES
-════════════════════════════════════════ -->
-<div class="services-section">
+<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+<div class="sp-services">
     <div class="container">
         <h2><span style="color:#714b67;">Our</span> Services</h2>
-        <div class="row justify-content-center" style="row-gap:55px; column-gap:18px;">
-
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#FA5A7D;"><i class="fa fa-cog"></i></div>
+        <div class="row justify-content-center" style="row-gap:54px;">
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#FA5A7D;"><i class="fa fa-cog"></i></div>
                     <h6>Customization</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#FF947A;"><i class="fa fa-wrench"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#FF947A;"><i class="fa fa-wrench"></i></div>
                     <h6>Implementation</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#3CD856;"><i class="fa fa-life-ring"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#3CD856;"><i class="fa fa-life-ring"></i></div>
                     <h6>Support</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#BF83FF;"><i class="fa fa-plug"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#BF83FF;"><i class="fa fa-plug"></i></div>
                     <h6>Integration</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#714b67;"><i class="fa fa-arrows-rotate"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#714b67;"><i class="fa fa-rotate"></i></div>
                     <h6>Migration</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#69CC70;"><i class="fa fa-comments"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#69CC70;"><i class="fa fa-comments"></i></div>
                     <h6>Consultancy</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#2E4556;"><i class="fa fa-server"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#2E4556;"><i class="fa fa-server"></i></div>
                     <h6>Hosting</h6>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-6" style="margin-bottom:50px;">
-                <div class="service-card">
-                    <div class="svc-icon" style="background:#FCD12C;"><i class="fa fa-industry" style="color:#333;"></i></div>
+            <div class="col-lg-2 col-md-3 col-5">
+                <div class="sp-svc-card">
+                    <div class="sp-svc-icon" style="background:#FCD12C;"><i class="fa fa-industry" style="color:#333;"></i></div>
                     <h6>Industries</h6>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     TABS SECTION
-════════════════════════════════════════ -->
-<div class="container mb-5">
+<!-- ═══════════════════════ TABS WRAPPER ═══════════════════════ -->
+<div class="container mb-5 mt-5">
 
     <!-- Support Badges -->
-    <div class="support-badges">
+    <div class="sp-supports">
         <span style="font-weight:600; color:#555; margin-right:6px;">Supports:</span>
-        <span class="support-badge" style="background:#017E84;">Community</span>
-        <span class="support-badge" style="background:#714b67;">Enterprise</span>
-        <span class="support-badge" style="background:#7C7BAD;">Odoo.sh</span>
+        <span class="sp-badge" style="background:#017E84;">Community</span>
+        <span class="sp-badge" style="background:#714b67;">Enterprise</span>
+        <span class="sp-badge" style="background:#7C7BAD;">Odoo.sh</span>
     </div>
 
-    <!-- Tab Nav -->
-    <div style="background:#fff; border:1px solid #e8d5e8; border-radius:14px; box-shadow:0 4px 20px rgba(113,75,103,0.08);">
-        <div style="padding:12px 20px 0; background:#fff; border-radius:14px 14px 0 0;">
-            <ul class="nav nav-tabs justify-content-center" id="spopliTabs" role="tablist">
+    <!-- Card wrapper -->
+    <div style="background:#fff; border:1px solid #e8d5e8; border-radius:14px; box-shadow:0 4px 20px rgba(113,75,103,.08);">
+
+        <!-- Tab Nav -->
+        <div style="padding:12px 18px 0; border-radius:14px 14px 0 0;">
+            <ul class="nav nav-tabs justify-content-center" id="spTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" role="tab">
-                        <i class="fa fa-star me-1"></i> Features
+                    <a class="nav-link active" id="t-feat" data-bs-toggle="tab" data-bs-target="#tab-feat" role="tab">
+                        <i class="fa fa-star me-1"></i>Features
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="screenshots-tab" data-bs-toggle="tab" data-bs-target="#screenshots" role="tab">
-                        <i class="fa fa-image me-1"></i> Screenshots
+                    <a class="nav-link" id="t-shot" data-bs-toggle="tab" data-bs-target="#tab-shot" role="tab">
+                        <i class="fa fa-image me-1"></i>Screenshots
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" role="tab">
-                        <i class="fa fa-microchip me-1"></i> Technical Specs
+                    <a class="nav-link" id="t-spec" data-bs-toggle="tab" data-bs-target="#tab-spec" role="tab">
+                        <i class="fa fa-microchip me-1"></i>Tech Specs
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="faq-tab" data-bs-toggle="tab" data-bs-target="#faq" role="tab">
-                        <i class="fa fa-question-circle me-1"></i> FAQ
+                    <a class="nav-link" id="t-faq" data-bs-toggle="tab" data-bs-target="#tab-faq" role="tab">
+                        <i class="fa fa-circle-question me-1"></i>FAQ
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" role="tab">
-                        <i class="fa fa-building me-1"></i> About Us
+                    <a class="nav-link" id="t-about" data-bs-toggle="tab" data-bs-target="#tab-about" role="tab">
+                        <i class="fa fa-building me-1"></i>About Us
                     </a>
                 </li>
             </ul>
         </div>
 
         <!-- Tab Content -->
-        <div class="tab-content p-4" id="spopliTabsContent">
+        <div class="tab-content p-4" id="spTabsContent">
 
-            <!-- ── FEATURES TAB ── -->
-            <div class="tab-pane fade show active" id="features" role="tabpanel">
-                <h3 style="text-align:center; font-size:26px; font-weight:700; color:#2c1a26; margin-bottom:6px;">
-                    Powerful Real-World Features
-                </h3>
-                <p style="text-align:center; color:#888; margin-bottom:30px;">Built for modern retail operations with practical functionality that works with any currency</p>
-                <div class="row g-4">
+            <!-- ── FEATURES ── -->
+            <div class="tab-pane fade show active" id="tab-feat" role="tabpanel">
+                <h3 style="text-align:center;font-size:24px;font-weight:700;color:#2c1a26;margin-bottom:6px;">Powerful Real-World Features</h3>
+                <p style="text-align:center;color:#888;margin-bottom:28px;font-size:14px;">Built for modern retail with practical functionality that works with any currency</p>
+                <div class="row g-3">
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card">
-                            <div class="icon-wrap"><i class="fa fa-calculator"></i></div>
+                        <div class="sp-feat">
+                            <div class="ic"><i class="fa fa-calculator"></i></div>
                             <h5>Smart Amount-Based Entry</h5>
-                            <p>Enter purchase amount in any currency and let the system automatically calculate the exact quantity needed.</p>
+                            <p>Enter any purchase amount and let the system automatically calculate the exact quantity needed.</p>
                             <ul>
                                 <li>Multi-currency amount input</li>
                                 <li>Automatic quantity calculation</li>
-                                <li>Real-time price calculation</li>
-                                <li>Instant online-like updates</li>
+                                <li>Real-time price updates</li>
+                                <li>Instant order line sync</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card">
-                            <div class="icon-wrap"><i class="fa fa-weight-hanging"></i></div>
+                        <div class="sp-feat">
+                            <div class="ic"><i class="fa fa-weight-hanging"></i></div>
                             <h5>Weight &amp; Bulk Products</h5>
-                            <p>Specially designed for businesses selling products by weight, volume, or measurement.</p>
+                            <p>Specially designed for businesses selling by weight, volume, or measurement.</p>
                             <ul>
                                 <li>Weight-based calculation (kg/gram)</li>
                                 <li>Decimal quantity precision</li>
                                 <li>Volume measurements (litre/ml)</li>
-                                <li>Flexible price per unit handling</li>
+                                <li>Flexible price-per-unit handling</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card">
-                            <div class="icon-wrap"><i class="fa fa-coins"></i></div>
+                        <div class="sp-feat">
+                            <div class="ic"><i class="fa fa-coins"></i></div>
                             <h5>Multi-Currency Support</h5>
                             <p>Works seamlessly with any currency configured in your Odoo system.</p>
                             <ul>
@@ -533,10 +434,10 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card">
-                            <div class="icon-wrap"><i class="fa fa-mobile-alt"></i></div>
+                        <div class="sp-feat">
+                            <div class="ic"><i class="fa fa-mobile-screen"></i></div>
                             <h5>Touch-Optimized Interface</h5>
-                            <p>Designed with touch devices in mind, featuring large buttons and intuitive interface.</p>
+                            <p>Large buttons and intuitive interface designed with touch devices in mind.</p>
                             <ul>
                                 <li>Large touch-friendly buttons</li>
                                 <li>Responsive mobile design</li>
@@ -546,10 +447,10 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card">
-                            <div class="icon-wrap"><i class="fa fa-bolt"></i></div>
+                        <div class="sp-feat">
+                            <div class="ic"><i class="fa fa-bolt"></i></div>
                             <h5>Real-Time Processing</h5>
-                            <p>Lightning-fast calculation and instant order handling. No delays in checkout.</p>
+                            <p>Lightning-fast calculation and instant order handling — no delays at checkout.</p>
                             <ul>
                                 <li>Instant mathematical calculations</li>
                                 <li>Live order line updates</li>
@@ -559,10 +460,10 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card">
-                            <div class="icon-wrap"><i class="fa fa-shield-alt"></i></div>
+                        <div class="sp-feat">
+                            <div class="ic"><i class="fa fa-shield-halved"></i></div>
                             <h5>Robust Validation &amp; Safety</h5>
-                            <p>Advanced input validation and error handling ensures data integrity and prevents calculation errors.</p>
+                            <p>Advanced input validation ensures data integrity and prevents calculation errors.</p>
                             <ul>
                                 <li>Input validation &amp; sanitization</li>
                                 <li>User-friendly error messages</li>
@@ -574,14 +475,14 @@
                 </div>
             </div>
 
-            <!-- ── SCREENSHOTS TAB ── -->
-            <div class="tab-pane fade" id="screenshots" role="tabpanel">
-                <h3 style="text-align:center; font-size:26px; font-weight:700; color:#2c1a26; margin-bottom:6px;">
+            <!-- ── SCREENSHOTS ── -->
+            <div class="tab-pane fade" id="tab-shot" role="tabpanel">
+                <h3 style="text-align:center;font-size:24px;font-weight:700;color:#2c1a26;margin-bottom:6px;">
                     How It <span style="color:#714b67;">Works</span>
                 </h3>
-                <p style="text-align:center; color:#888; margin-bottom:30px;">Step-by-step visual guide to using POS Manual Amount Entry</p>
+                <p style="text-align:center;color:#888;margin-bottom:28px;font-size:14px;">Step-by-step visual guide to using POS Manual Amount Entry</p>
 
-                <div class="screenshot-block">
+                <div class="sp-shot">
                     <h3>Step 1: <span>Select Product</span></h3>
                     <p>Select any product from the POS screen as you normally would</p>
                     <div class="img-wrap">
@@ -589,15 +490,15 @@
                     </div>
                 </div>
 
-                <div class="screenshot-block">
+                <div class="sp-shot">
                     <h3>Step 2: <span>Enter Amount</span></h3>
-                    <p>Click "Enter Amount" button and type the customer's budget</p>
+                    <p>Click the "Enter Amount" button and type the customer's budget</p>
                     <div class="img-wrap">
                         <img src="assets/screenshot/2.png" alt="Step 2 - Enter Amount">
                     </div>
                 </div>
 
-                <div class="screenshot-block">
+                <div class="sp-shot">
                     <h3>Step 3: <span>Auto-Calculate</span></h3>
                     <p>The system instantly calculates the exact quantity based on current price</p>
                     <div class="img-wrap">
@@ -606,162 +507,161 @@
                 </div>
             </div>
 
-            <!-- ── TECHNICAL SPECS TAB ── -->
-            <div class="tab-pane fade" id="specs" role="tabpanel">
-                <h3 style="text-align:center; font-size:26px; font-weight:700; color:#2c1a26; margin-bottom:28px;">Technical Specifications</h3>
+            <!-- ── TECH SPECS ── -->
+            <div class="tab-pane fade" id="tab-spec" role="tabpanel">
+                <h3 style="text-align:center;font-size:24px;font-weight:700;color:#2c1a26;margin-bottom:26px;">Technical Specifications</h3>
                 <div class="row g-3">
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-code-branch"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-code-branch"></i></div>
                             <h5>Odoo Version</h5>
                             <p>18.0 Community &amp; Enterprise</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-layer-group"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-layer-group"></i></div>
                             <h5>Framework</h5>
                             <p>OWL JS + Odoo POS Framework</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-puzzle-piece"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-puzzle-piece"></i></div>
                             <h5>Dependencies</h5>
-                            <p>point_of_sale (Core POS module only)</p>
+                            <p>point_of_sale (Core POS only)</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-file-contract"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-file-contract"></i></div>
                             <h5>License</h5>
                             <p>OPL-1 (Odoo Proprietary License)</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-download"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-download"></i></div>
                             <h5>Installation</h5>
-                            <p>Standard Odoo module install — no extra config needed</p>
+                            <p>Standard Odoo install — no extra config needed</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-globe"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-globe"></i></div>
                             <h5>Localization</h5>
                             <p>Works with all regional currency formats</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-desktop"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-desktop"></i></div>
                             <h5>UI Framework</h5>
                             <p>Responsive, mobile &amp; tablet ready</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto"><i class="fa fa-users"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto"><i class="fa fa-users"></i></div>
                             <h5>Multi-User</h5>
                             <p>Supports multiple concurrent POS sessions</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Availability -->
-                <h3 style="font-size:22px; font-weight:700; color:#2c1a26; margin: 36px 0 16px; text-align:center;">Platform Availability</h3>
+                <h3 style="font-size:20px;font-weight:700;color:#2c1a26;margin:34px 0 14px;text-align:center;">Platform Availability</h3>
                 <div class="row g-3 justify-content-center">
                     <div class="col-md-4">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto" style="background:#28a745;"><i class="fa fa-server"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto" style="background:#28a745;"><i class="fa fa-server"></i></div>
                             <h5>On-Premise</h5>
-                            <p style="color:#28a745; font-weight:700;">✓ Supported</p>
+                            <p style="color:#28a745;font-weight:700;">✓ Supported</p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto" style="background:#28a745;"><i class="fa fa-cloud"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto" style="background:#28a745;"><i class="fa fa-cloud"></i></div>
                             <h5>Odoo.sh</h5>
-                            <p style="color:#28a745; font-weight:700;">✓ Supported</p>
+                            <p style="color:#28a745;font-weight:700;">✓ Supported</p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="feature-card text-center">
-                            <div class="icon-wrap mx-auto" style="background:#dc3545;"><i class="fa fa-times-circle"></i></div>
+                        <div class="sp-feat text-center">
+                            <div class="ic mx-auto" style="background:#dc3545;"><i class="fa fa-circle-xmark"></i></div>
                             <h5>Odoo Online</h5>
-                            <p style="color:#dc3545; font-weight:700;">✗ Not Supported</p>
+                            <p style="color:#dc3545;font-weight:700;">✗ Not Supported</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ── FAQ TAB ── -->
-            <div class="tab-pane fade" id="faq" role="tabpanel">
-                <h3 style="text-align:center; font-size:26px; font-weight:700; color:#2c1a26; margin-bottom:28px;">Frequently Asked Questions</h3>
+            <!-- ── FAQ ── -->
+            <div class="tab-pane fade" id="tab-faq" role="tabpanel">
+                <h3 style="text-align:center;font-size:24px;font-weight:700;color:#2c1a26;margin-bottom:26px;">Frequently Asked Questions</h3>
 
-                <div class="faq-item">
-                    <div class="faq-header" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <div class="sp-faq">
+                    <button class="sp-faq-hdr" data-bs-toggle="collapse" data-bs-target="#fq1">
                         Does this module work with Odoo Community Edition?
                         <i class="fa fa-chevron-down float-end mt-1"></i>
-                    </div>
-                    <div class="accordion-collapse collapse faq-body" id="faq1">
+                    </button>
+                    <div class="accordion-collapse collapse sp-faq-body" id="fq1">
                         Yes! This module is fully compatible with both Odoo 18 Community and Enterprise editions. It requires only the standard point_of_sale module with no additional dependencies.
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-header" data-bs-toggle="collapse" data-bs-target="#faq2">
+                <div class="sp-faq">
+                    <button class="sp-faq-hdr" data-bs-toggle="collapse" data-bs-target="#fq2">
                         How does the quantity calculation work?
                         <i class="fa fa-chevron-down float-end mt-1"></i>
-                    </div>
-                    <div class="accordion-collapse collapse faq-body" id="faq2">
-                        Simply type ₹500 worth of item, the system reads current POS price, calculates 500 ÷ Price/kg = Qty, then fills in the exact decimal quantity automatically. All calculations happen in real-time with zero delay.
+                    </button>
+                    <div class="accordion-collapse collapse sp-faq-body" id="fq2">
+                        Simply type ₹500 worth of item — the system reads the current POS price, calculates 500 ÷ Price/kg = Qty, then fills in the exact decimal quantity automatically. All calculations happen in real-time with zero delay.
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-header" data-bs-toggle="collapse" data-bs-target="#faq3">
+                <div class="sp-faq">
+                    <button class="sp-faq-hdr" data-bs-toggle="collapse" data-bs-target="#fq3">
                         Does it support multiple currencies?
                         <i class="fa fa-chevron-down float-end mt-1"></i>
-                    </div>
-                    <div class="accordion-collapse collapse faq-body" id="faq3">
-                        Yes! The module automatically detects your Odoo system's currency settings and adapts accordingly. It supports 190+ currencies with proper decimal precision and regional formatting rules.
+                    </button>
+                    <div class="accordion-collapse collapse sp-faq-body" id="fq3">
+                        Yes! The module automatically detects your Odoo system's currency settings. It supports 190+ currencies with proper decimal precision and regional formatting rules.
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-header" data-bs-toggle="collapse" data-bs-target="#faq4">
+                <div class="sp-faq">
+                    <button class="sp-faq-hdr" data-bs-toggle="collapse" data-bs-target="#fq4">
                         Will this affect my existing POS data?
                         <i class="fa fa-chevron-down float-end mt-1"></i>
-                    </div>
-                    <div class="accordion-collapse collapse faq-body" id="faq4">
+                    </button>
+                    <div class="accordion-collapse collapse sp-faq-body" id="fq4">
                         No. This module only adds a new input method to your POS interface. Your existing products, orders, customers, and all data remain completely safe and untouched.
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-header" data-bs-toggle="collapse" data-bs-target="#faq5">
+                <div class="sp-faq">
+                    <button class="sp-faq-hdr" data-bs-toggle="collapse" data-bs-target="#fq5">
                         Can multiple cashiers use it simultaneously?
                         <i class="fa fa-chevron-down float-end mt-1"></i>
-                    </div>
-                    <div class="accordion-collapse collapse faq-body" id="faq5">
-                        Yes! The module fully supports multiple concurrent POS sessions. Each cashier can use it independently on their own POS session without any conflicts.
+                    </button>
+                    <div class="accordion-collapse collapse sp-faq-body" id="fq5">
+                        Yes! The module fully supports multiple concurrent POS sessions. Each cashier can use it independently on their own session without any conflicts.
                     </div>
                 </div>
             </div>
 
-            <!-- ── ABOUT TAB ── -->
-            <div class="tab-pane fade" id="about" role="tabpanel">
-                <h3 style="text-align:center; font-size:26px; font-weight:700; color:#2c1a26; margin-bottom:28px;">About Spopli Web Development</h3>
-                <div class="row g-4">
+            <!-- ── ABOUT ── -->
+            <div class="tab-pane fade" id="tab-about" role="tabpanel">
+                <h3 style="text-align:center;font-size:24px;font-weight:700;color:#2c1a26;margin-bottom:26px;">About Spopli Web Development</h3>
+                <div class="row g-3">
                     <div class="col-md-6">
-                        <div class="about-card">
+                        <div class="sp-about">
                             <h5><i class="fa fa-building me-2"></i>Company Overview</h5>
                             <p>Spopli Web Development is an Odoo Ready Partner specializing in Odoo module development, implementation, and support. With 8+ years of experience and 15+ dedicated developers, we serve 500+ happy customers across 20+ countries.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="about-card">
+                        <div class="sp-about">
                             <h5><i class="fa fa-address-card me-2"></i>Contact Information</h5>
                             <p>
                                 <i class="fa fa-phone me-2"></i>+91 2562 275457<br>
@@ -771,31 +671,30 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="about-card">
-                            <h5><i class="fa fa-cogs me-2"></i>Our Services</h5>
+                        <div class="sp-about">
+                            <h5><i class="fa fa-gears me-2"></i>Our Services</h5>
                             <p>Odoo Customization, Implementation, Support, Integration, Migration, Consultancy, Hosting, and Industry-specific Solutions for Retail, Manufacturing, Service, and more.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="about-card">
+                        <div class="sp-about">
                             <h5><i class="fa fa-certificate me-2"></i>Odoo Partnership</h5>
                             <p>We are an official Odoo Ready Partner, ensuring highest quality standards in module development and customer service. All our modules are tested and verified for Odoo compatibility.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Latest Release inside About -->
-                <h3 style="font-size:22px; font-weight:700; color:#2c1a26; margin: 36px 0 16px; text-align:center;">Latest Release</h3>
+                <h3 style="font-size:20px;font-weight:700;color:#2c1a26;margin:34px 0 14px;text-align:center;">Latest Release</h3>
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <div class="release-card">
+                        <div class="sp-release">
                             <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
-                                <span style="font-size:18px; font-weight:700; color:#2c1a26;">Version 18.0.1.0.0</span>
-                                <span class="release-badge">New</span>
-                                <span style="color:#888; font-size:13px;">2024</span>
+                                <span style="font-size:17px;font-weight:700;color:#2c1a26;">Version 18.0.1.0.0</span>
+                                <span class="sp-release-badge">New</span>
+                                <span style="color:#888;font-size:12px;">2024</span>
                             </div>
-                            <div style="background:#f8f5fb; border-radius:10px; padding:16px;">
-                                <p style="color:#666; font-size:14px; margin:0; line-height:1.7;">
+                            <div style="background:#f8f5fb;border-radius:10px;padding:14px;">
+                                <p style="color:#666;font-size:13px;margin:0;line-height:1.7;">
                                     ✅ Initial release for Odoo 18<br>
                                     ✅ Smart amount-based POS entry<br>
                                     ✅ Multi-currency support<br>
@@ -809,8 +708,8 @@
             </div>
 
         </div><!-- /tab-content -->
-    </div><!-- /tab wrapper -->
-</div>
+    </div><!-- /card -->
+</div><!-- /container -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
