@@ -19,7 +19,7 @@
         'static/description/banner.png',
         'static/description/icon.png',
     ],
-    'price': 10.0,
+    'price': 9.99.0,
     'currency': 'EUR',
     'installable': True,
     'application': True,
