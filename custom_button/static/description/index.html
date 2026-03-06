@@ -6,6 +6,97 @@
     <title>POS Manual Amount Entry — Spopli</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+    <style>
+        /* ══ TAB SYSTEM — Pure CSS ══ */
+
+        /* Hide all tab panels by default */
+        .sp-panel { display: none; padding: 28px; }
+
+        /* Show panel when its radio is checked */
+        #tab-ss:checked ~ .tab-wrap #t-ss,
+        #tab-ft:checked ~ .tab-wrap #t-ft,
+        #tab-sp:checked ~ .tab-wrap #t-sp,
+        #tab-fq:checked ~ .tab-wrap #t-fq,
+        #tab-rl:checked ~ .tab-wrap #t-rl { display: block; }
+
+        /* Default tab button style */
+        .sp-tab-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1.5px solid #d0cbc3;
+            background-color: transparent;
+            color: #6b6b6b;
+            text-decoration: none;
+            margin-right: 5px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        /* Active tab button style */
+        #tab-ss:checked ~ .tab-wrap .sp-tab-label[for="tab-ss"],
+        #tab-ft:checked ~ .tab-wrap .sp-tab-label[for="tab-ft"],
+        #tab-sp:checked ~ .tab-wrap .sp-tab-label[for="tab-sp"],
+        #tab-fq:checked ~ .tab-wrap .sp-tab-label[for="tab-fq"],
+        #tab-rl:checked ~ .tab-wrap .sp-tab-label[for="tab-rl"] {
+            background-color: #0f1923;
+            border-color: #0f1923;
+            color: #fff;
+        }
+
+        /* Hide the radio inputs */
+        .sp-radio { display: none; }
+
+        /* ══ FAQ ACCORDION — Pure CSS ══ */
+        .faq-input { display: none; }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 18px;
+            font-size: 14px;
+            color: #5f6b72;
+            line-height: 1.7;
+            background-color: #fff;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-input:checked ~ .faq-answer {
+            max-height: 300px;
+            padding: 12px 18px 16px;
+        }
+
+        .faq-label {
+            width: 100%;
+            background-color: #f7f7f5;
+            border: none;
+            padding: 16px 18px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f1923;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-label .faq-icon::before { content: '\f067'; } /* fa-plus */
+        .faq-input:checked ~ .faq-label .faq-icon::before { content: '\f068'; } /* fa-minus */
+
+        .faq-icon {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #e8701a;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#ffffff; color:#0f1923; margin:0;">
 <div class="container">
@@ -20,38 +111,26 @@
     <span style="background-color:#7C7BAD; color:#fff; font-size:11px; font-weight:700; padding:5px 18px; border-radius:6px;">Odoo.sh</span>
 </div>
 
-
-
-
 <!-- ══ HERO ══ -->
 <div style="background-color:#0f1923; border-radius:20px; padding:52px 48px 0; margin-bottom:48px;">
-
-    <!-- eyebrow -->
     <div class="d-flex align-items-center flex-wrap gap-2" style="margin-bottom:20px;">
         <span style="width:8px; height:8px; border-radius:50%; background-color:#e8701a; display:inline-block;"></span>
         <span style="font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.5);">Odoo 18 &nbsp;·&nbsp; Point of Sale Module</span>
         <span style="font-size:11px; font-weight:700; padding:4px 14px; border-radius:6px; background-color:#3a1f08; color:#f0a06a; border:1px solid #7a3910;">New</span>
     </div>
-
-    <!-- title row: heading left, logo right -->
-    <!-- title row -->
-<div class="d-flex justify-content-between align-items-start flex-wrap" style="gap:16px; margin-bottom:16px;">
-    <h1 style="font-family:Georgia,'Times New Roman',serif; font-size:48px; font-weight:900; color:#ffffff; line-height:1.06; margin:0;">
-        POS Manual<br>
-        <span style="color:#5dd8e8; font-style:italic;">Amount Entry</span>
-    </h1>
-
-    <img src="assets/screenshot/icon_new.png" alt="Company Icon"
-         style="height:100px; width:250px; object-fit:contain; flex-shrink:0;">
-</div>
-    <!-- subtitle -->
+    <div class="d-flex justify-content-between align-items-start flex-wrap" style="gap:16px; margin-bottom:16px;">
+        <h1 style="font-family:Georgia,'Times New Roman',serif; font-size:48px; font-weight:900; color:#ffffff; line-height:1.06; margin:0;">
+            POS Manual<br>
+            <span style="color:#5dd8e8; font-style:italic;">Amount Entry</span>
+        </h1>
+        <img src="assets/screenshot/icon_new.png" alt="Company Icon"
+             style="height:100px; width:250px; object-fit:contain; flex-shrink:0;">
+    </div>
     <p style="font-size:15px; line-height:1.75; color:rgba(255,255,255,.55); max-width:500px; margin-bottom:28px;">
         Enter any amount — system auto-calculates the exact quantity.
         Built for fruit, vegetable, spice &amp; bulk retail.
         Works in any currency, on any device.
     </p>
-
-    <!-- buttons -->
     <div class="d-flex flex-wrap" style="gap:12px; margin-bottom:44px;">
         <a href="tel:+912562275457" class="d-inline-flex align-items-center"
            style="gap:8px; background-color:#e8701a; color:#fff; border-radius:8px; padding:12px 24px; font-weight:700; font-size:14px; text-decoration:none; margin-right:4px;">
@@ -62,14 +141,12 @@
             <i class="fa fa-envelope"></i>&nbsp; chintu2411@gmail.com
         </a>
     </div>
-
-    <!-- banner flush bottom -->
     <div style="border-radius:12px 12px 0 0; overflow:hidden; border:1px solid #2a3a4a; border-bottom:none;">
         <img src="assets/screenshot/banner.png" alt="Banner" style="width:100%; display:block;">
     </div>
-
 </div>
-<!-- ══ STAT ROW — Bootstrap row, NOT CSS grid ══ -->
+
+<!-- ══ STAT ROW ══ -->
 <div class="row g-0" style="border:1.5px solid #e8e4de; border-radius:14px; overflow:hidden; margin-bottom:48px;">
     <div class="col-2" style="background-color:#f7f7f5; padding:22px 8px; text-align:center; border-right:1px solid #e8e4de;">
         <div style="font-size:26px; font-weight:900; color:#0a5c6b; line-height:1;">365</div>
@@ -103,76 +180,61 @@
     <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:40px; font-weight:900; color:#0f1923; line-height:1.1; margin-bottom:32px;">
         Built for <span style="color:#0a5c6b;">Modern Retail.</span><br>Works Everywhere.
     </h2>
-
     <div class="row g-3">
-
         <div class="col-lg-4 col-md-6">
             <div style="background-color:#fff; border:1.5px solid #e8e4de; border-left:4px solid #e8701a; border-radius:12px; padding:24px; height:100%;">
-                <!-- KEY FIX: d-flex Bootstrap class for icon box -->
-                <div class="d-flex align-items-center justify-content-center"
-                     style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
+                <div class="d-flex align-items-center justify-content-center" style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
                     <i class="fa fa-calculator" style="color:#fff; font-size:18px;"></i>
                 </div>
                 <h5 style="font-size:15px; font-weight:700; color:#0f1923; margin-bottom:8px;">Smart Amount-Based Entry</h5>
                 <p style="font-size:14px; line-height:1.65; color:#5f6b72; margin:0;">Enter any purchase amount and the system instantly calculates the exact product quantity. No manual math.</p>
             </div>
         </div>
-
         <div class="col-lg-4 col-md-6">
             <div style="background-color:#fff; border:1.5px solid #e8e4de; border-left:4px solid #e8701a; border-radius:12px; padding:24px; height:100%;">
-                <div class="d-flex align-items-center justify-content-center"
-                     style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
+                <div class="d-flex align-items-center justify-content-center" style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
                     <i class="fa fa-coins" style="color:#fff; font-size:18px;"></i>
                 </div>
                 <h5 style="font-size:15px; font-weight:700; color:#0f1923; margin-bottom:8px;">Multi-Currency Support</h5>
                 <p style="font-size:14px; line-height:1.65; color:#5f6b72; margin:0;">Works with any currency in your Odoo system. Supports 190+ currencies with decimal precision.</p>
             </div>
         </div>
-
         <div class="col-lg-4 col-md-6">
             <div style="background-color:#fff; border:1.5px solid #e8e4de; border-left:4px solid #e8701a; border-radius:12px; padding:24px; height:100%;">
-                <div class="d-flex align-items-center justify-content-center"
-                     style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
+                <div class="d-flex align-items-center justify-content-center" style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
                     <i class="fa fa-weight-hanging" style="color:#fff; font-size:18px;"></i>
                 </div>
                 <h5 style="font-size:15px; font-weight:700; color:#0f1923; margin-bottom:8px;">Weight &amp; Bulk Products</h5>
                 <p style="font-size:14px; line-height:1.65; color:#5f6b72; margin:0;">Perfect for fruit, vegetable, spice and bulk stores. kg, gram, litre, ml — decimal precision.</p>
             </div>
         </div>
-
         <div class="col-lg-4 col-md-6">
             <div style="background-color:#fff; border:1.5px solid #e8e4de; border-left:4px solid #e8701a; border-radius:12px; padding:24px; height:100%;">
-                <div class="d-flex align-items-center justify-content-center"
-                     style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
+                <div class="d-flex align-items-center justify-content-center" style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
                     <i class="fa fa-mobile-screen" style="color:#fff; font-size:18px;"></i>
                 </div>
                 <h5 style="font-size:15px; font-weight:700; color:#0f1923; margin-bottom:8px;">Touch-Optimized Interface</h5>
                 <p style="font-size:14px; line-height:1.65; color:#5f6b72; margin:0;">Large touch-friendly buttons for tablets and POS terminals. Cashiers work faster, fewer mistakes.</p>
             </div>
         </div>
-
         <div class="col-lg-4 col-md-6">
             <div style="background-color:#fff; border:1.5px solid #e8e4de; border-left:4px solid #e8701a; border-radius:12px; padding:24px; height:100%;">
-                <div class="d-flex align-items-center justify-content-center"
-                     style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
+                <div class="d-flex align-items-center justify-content-center" style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
                     <i class="fa fa-bolt" style="color:#fff; font-size:18px;"></i>
                 </div>
                 <h5 style="font-size:15px; font-weight:700; color:#0f1923; margin-bottom:8px;">Real-Time Processing</h5>
                 <p style="font-size:14px; line-height:1.65; color:#5f6b72; margin:0;">Lightning-fast calculation with instant results. Live order line updates. Zero latency at checkout.</p>
             </div>
         </div>
-
         <div class="col-lg-4 col-md-6">
             <div style="background-color:#fff; border:1.5px solid #e8e4de; border-left:4px solid #e8701a; border-radius:12px; padding:24px; height:100%;">
-                <div class="d-flex align-items-center justify-content-center"
-                     style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
+                <div class="d-flex align-items-center justify-content-center" style="width:44px; height:44px; border-radius:10px; background-color:#0a5c6b; margin-bottom:14px;">
                     <i class="fa fa-headset" style="color:#fff; font-size:18px;"></i>
                 </div>
                 <h5 style="font-size:15px; font-weight:700; color:#0f1923; margin-bottom:8px;">365 Days Free Support</h5>
                 <p style="font-size:14px; line-height:1.65; color:#5f6b72; margin:0;">Full year of dedicated support. 8+ years experience, 15+ developers across 20+ countries.</p>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -184,49 +246,39 @@
         <p style="font-size:15px; color:rgba(255,255,255,.65); margin:0;">Let's get your store running smarter — today.</p>
     </div>
     <div class="d-flex flex-wrap" style="gap:12px;">
-        <a href="mailto:chintu2411@gmail.com"
-           class="d-inline-flex align-items-center"
-           style="gap:8px; background-color:#fff; color:#0a5c6b; border-radius:8px; padding:12px 22px; font-weight:700; font-size:14px; text-decoration:none;margin-right:4px;">
+        <a href="mailto:chintu2411@gmail.com" class="d-inline-flex align-items-center"
+           style="gap:8px; background-color:#fff; color:#0a5c6b; border-radius:8px; padding:12px 22px; font-weight:700; font-size:14px; text-decoration:none; margin-right:4px;">
             <i class="fa fa-envelope"></i>&nbsp; Email Us
         </a>
-        <a href="tel:+912562275457"
-           class="d-inline-flex align-items-center"
+        <a href="tel:+912562275457" class="d-inline-flex align-items-center"
            style="gap:8px; background-color:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.5); border-radius:8px; padding:12px 22px; font-weight:700; font-size:14px; text-decoration:none;">
             <i class="fa fa-phone"></i>&nbsp; Call Now
         </a>
     </div>
 </div>
 
-<!-- ══ TABS — inline onclick JS works in Odoo ══ -->
-<div style="border:1.5px solid #e8e4de; border-radius:16px; overflow:hidden; margin-bottom:48px; background-color:#fff;">
+<!-- ══ TABS — Pure CSS using radio inputs ══ -->
+
+<!-- Radio inputs placed BEFORE the tab wrapper (CSS sibling selector magic) -->
+<input class="sp-radio" type="radio" name="sp-tabs" id="tab-ss" checked>
+<input class="sp-radio" type="radio" name="sp-tabs" id="tab-ft">
+<input class="sp-radio" type="radio" name="sp-tabs" id="tab-sp">
+<input class="sp-radio" type="radio" name="sp-tabs" id="tab-fq">
+<input class="sp-radio" type="radio" name="sp-tabs" id="tab-rl">
+
+<div style="border:1.5px solid #e8e4de; border-radius:16px; overflow:hidden; margin-bottom:48px; background-color:#fff;" class="tab-wrap">
 
     <!-- Tab Nav -->
     <div class="d-flex flex-wrap" style="gap:6px; padding:14px 18px; background-color:#f7f7f5; border-bottom:2px solid #e8e4de;">
-        <a href="#t-ss" id="btn-t-ss" class="d-inline-flex align-items-center sp-tab"
-   style="gap:6px; font-size:13px; font-weight:600; padding:8px 16px; border-radius:6px; border:1.5px solid #0f1923; background-color:#0f1923; color:#fff; text-decoration:none; margin-right:5px;">
-   <i class="fa fa-image"></i> Screenshots
-</a>
-<a href="#t-ft" id="btn-t-ft" class="d-inline-flex align-items-center sp-tab"
-   style="gap:6px; font-size:13px; font-weight:600; padding:8px 16px; border-radius:6px; border:1.5px solid #d0cbc3; background-color:transparent; color:#6b6b6b; text-decoration:none; margin-right:5px;">
-   <i class="fa fa-star"></i> Features
-</a>
-<a href="#t-sp" id="btn-t-sp" class="d-inline-flex align-items-center sp-tab"
-   style="gap:6px; font-size:13px; font-weight:600; padding:8px 16px; border-radius:6px; border:1.5px solid #d0cbc3; background-color:transparent; color:#6b6b6b; text-decoration:none; margin-right:5px;">
-   <i class="fa fa-microchip"></i> Tech Specs
-</a>
-<a href="#t-fq" id="btn-t-fq" class="d-inline-flex align-items-center sp-tab"
-   style="gap:6px; font-size:13px; font-weight:600; padding:8px 16px; border-radius:6px; border:1.5px solid #d0cbc3; background-color:transparent; color:#6b6b6b; text-decoration:none; margin-right:5px;">
-   <i class="fa fa-circle-question"></i> FAQs
-</a>
-<a href="#t-rl" id="btn-t-rl" class="d-inline-flex align-items-center sp-tab"
-   style="gap:6px; font-size:13px; font-weight:600; padding:8px 16px; border-radius:6px; border:1.5px solid #d0cbc3; background-color:transparent; color:#6b6b6b; text-decoration:none;">
-   <i class="fa fa-clock-rotate-left"></i> Releases
-</a>
+        <label for="tab-ss" class="sp-tab-label"><i class="fa fa-image"></i> Screenshots</label>
+        <label for="tab-ft" class="sp-tab-label"><i class="fa fa-star"></i> Features</label>
+        <label for="tab-sp" class="sp-tab-label"><i class="fa fa-microchip"></i> Tech Specs</label>
+        <label for="tab-fq" class="sp-tab-label"><i class="fa fa-circle-question"></i> FAQs</label>
+        <label for="tab-rl" class="sp-tab-label"><i class="fa fa-clock-rotate-left"></i> Releases</label>
     </div>
 
     <!-- SCREENSHOTS TAB -->
-    <div id="t-ss" style="padding:28px;">
-
+    <div id="t-ss" class="sp-panel">
         <div style="border:1.5px solid #e8e4de; border-radius:12px; overflow:hidden; margin-bottom:20px;">
             <div style="padding:24px 28px 18px; background-color:#fff;">
                 <div class="d-inline-flex align-items-center justify-content-center"
@@ -240,7 +292,6 @@
                 <img src="assets/screenshot/1.png" alt="Select Product" style="max-width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(15,25,35,.1);">
             </div>
         </div>
-
         <div style="border:1.5px solid #e8e4de; border-radius:12px; overflow:hidden; margin-bottom:20px;">
             <div style="padding:24px 28px 18px; background-color:#fff;">
                 <div class="d-inline-flex align-items-center justify-content-center"
@@ -254,7 +305,6 @@
                 <img src="assets/screenshot/2.png" alt="Enter Amount" style="max-width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(15,25,35,.1);">
             </div>
         </div>
-
         <div style="border:1.5px solid #e8e4de; border-radius:12px; overflow:hidden;">
             <div style="padding:24px 28px 18px; background-color:#fff;">
                 <div class="d-inline-flex align-items-center justify-content-center"
@@ -271,12 +321,11 @@
     </div>
 
     <!-- FEATURES TAB -->
-    <div id="t-ft" style="padding:28px; display:none;">
+    <div id="t-ft" class="sp-panel">
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="d-flex align-items-flex-start h-100" style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:12px; padding:20px; gap:14px;">
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
                         <i class="fa fa-calculator" style="color:#fff; font-size:14px;"></i>
                     </div>
                     <div><h6 style="font-size:14px; font-weight:700; color:#0f1923; margin-bottom:4px;">Smart Amount-Based Entry</h6><p style="font-size:13px; color:#5f6b72; line-height:1.6; margin:0;">Auto-calculates exact quantity from any entered amount. Multi-currency, real-time updates.</p></div>
@@ -284,8 +333,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex align-items-flex-start h-100" style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:12px; padding:20px; gap:14px;">
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
                         <i class="fa fa-coins" style="color:#fff; font-size:14px;"></i>
                     </div>
                     <div><h6 style="font-size:14px; font-weight:700; color:#0f1923; margin-bottom:4px;">Multi-Currency Support</h6><p style="font-size:13px; color:#5f6b72; line-height:1.6; margin:0;">Auto-detects system currency. 190+ currencies with decimal precision.</p></div>
@@ -293,8 +341,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex align-items-flex-start h-100" style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:12px; padding:20px; gap:14px;">
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
                         <i class="fa fa-weight-hanging" style="color:#fff; font-size:14px;"></i>
                     </div>
                     <div><h6 style="font-size:14px; font-weight:700; color:#0f1923; margin-bottom:4px;">Weight &amp; Bulk Products</h6><p style="font-size:13px; color:#5f6b72; line-height:1.6; margin:0;">kg, gram, litre, ml — decimal precision for every unit.</p></div>
@@ -302,8 +349,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex align-items-flex-start h-100" style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:12px; padding:20px; gap:14px;">
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
                         <i class="fa fa-mobile-screen" style="color:#fff; font-size:14px;"></i>
                     </div>
                     <div><h6 style="font-size:14px; font-weight:700; color:#0f1923; margin-bottom:4px;">Touch-Optimized UI</h6><p style="font-size:13px; color:#5f6b72; line-height:1.6; margin:0;">Large touch-friendly buttons. Tablet-optimized for busy retail counters.</p></div>
@@ -311,8 +357,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex align-items-flex-start h-100" style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:12px; padding:20px; gap:14px;">
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
                         <i class="fa fa-bolt" style="color:#fff; font-size:14px;"></i>
                     </div>
                     <div><h6 style="font-size:14px; font-weight:700; color:#0f1923; margin-bottom:4px;">Real-Time Processing</h6><p style="font-size:13px; color:#5f6b72; line-height:1.6; margin:0;">Instant calculations. Live order line updates. Zero latency.</p></div>
@@ -320,8 +365,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex align-items-flex-start h-100" style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:12px; padding:20px; gap:14px;">
-                    <div class="d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
+                    <div class="d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px; height:38px; border-radius:8px; background-color:#0a5c6b;">
                         <i class="fa fa-shield-halved" style="color:#fff; font-size:14px;"></i>
                     </div>
                     <div><h6 style="font-size:14px; font-weight:700; color:#0f1923; margin-bottom:4px;">Robust Validation</h6><p style="font-size:13px; color:#5f6b72; line-height:1.6; margin:0;">Input validation &amp; sanitization. Data integrity protection.</p></div>
@@ -331,7 +375,7 @@
     </div>
 
     <!-- TECH SPECS TAB -->
-    <div id="t-sp" style="padding:28px; display:none;">
+    <div id="t-sp" class="sp-panel">
         <div class="row g-3">
             <div class="col-6 col-md-3">
                 <div style="background-color:#f7f7f5; border:1.5px solid #e8e4de; border-radius:10px; padding:18px 14px; text-align:center;">
@@ -408,55 +452,65 @@
         </div>
     </div>
 
-    <!-- FAQ TAB -->
-    <div id="t-fq" style="padding:28px; display:none;">
+    <!-- FAQ TAB — Pure CSS accordion -->
+    <div id="t-fq" class="sp-panel">
 
+        <!-- FAQ 1 -->
         <div style="border:1.5px solid #e8e4de; border-radius:10px; overflow:hidden; margin-bottom:8px;">
-            <button onclick="spFaq(this)" style="width:100%; background-color:#f7f7f5; border:none; padding:16px 18px; text-align:left; font-size:15px; font-weight:600; color:#0f1923; cursor:pointer;" class="d-flex justify-content-between align-items-center">
+            <input class="faq-input" type="radio" name="faq" id="faq-1">
+            <label class="faq-label" for="faq-1">
                 Does this work with Odoo Community Edition?
-                <i class="fa fa-plus" style="color:#e8701a; font-size:12px; flex-shrink:0;"></i>
-            </button>
-            <div style="padding:0 18px; max-height:0; overflow:hidden; font-size:14px; color:#5f6b72; line-height:1.7; background-color:#fff;">
+                <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
                 <p style="margin:0 0 4px;">Yes! Fully compatible with Odoo 18 Community and Enterprise. Requires only point_of_sale — no extra dependencies.</p>
             </div>
         </div>
 
+        <!-- FAQ 2 -->
         <div style="border:1.5px solid #e8e4de; border-radius:10px; overflow:hidden; margin-bottom:8px;">
-            <button onclick="spFaq(this)" style="width:100%; background-color:#f7f7f5; border:none; padding:16px 18px; text-align:left; font-size:15px; font-weight:600; color:#0f1923; cursor:pointer;" class="d-flex justify-content-between align-items-center">
+            <input class="faq-input" type="radio" name="faq" id="faq-2">
+            <label class="faq-label" for="faq-2">
                 How does the quantity calculation work?
-                <i class="fa fa-plus" style="color:#e8701a; font-size:12px; flex-shrink:0;"></i>
-            </button>
-            <div style="padding:0 18px; max-height:0; overflow:hidden; font-size:14px; color:#5f6b72; line-height:1.7; background-color:#fff;">
+                <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
                 <p style="margin:0 0 4px;">Type &#8377;500 &#8594; system reads POS price &#8594; 500 &#247; Price/kg = Qty &#8594; fills exact decimal quantity. All real-time, zero delay.</p>
             </div>
         </div>
 
+        <!-- FAQ 3 -->
         <div style="border:1.5px solid #e8e4de; border-radius:10px; overflow:hidden; margin-bottom:8px;">
-            <button onclick="spFaq(this)" style="width:100%; background-color:#f7f7f5; border:none; padding:16px 18px; text-align:left; font-size:15px; font-weight:600; color:#0f1923; cursor:pointer;" class="d-flex justify-content-between align-items-center">
+            <input class="faq-input" type="radio" name="faq" id="faq-3">
+            <label class="faq-label" for="faq-3">
                 Does it support multiple currencies?
-                <i class="fa fa-plus" style="color:#e8701a; font-size:12px; flex-shrink:0;"></i>
-            </button>
-            <div style="padding:0 18px; max-height:0; overflow:hidden; font-size:14px; color:#5f6b72; line-height:1.7; background-color:#fff;">
+                <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
                 <p style="margin:0 0 4px;">Yes! Auto-detects your Odoo system currency. Supports 190+ currencies with decimal precision and regional formatting.</p>
             </div>
         </div>
 
+        <!-- FAQ 4 -->
         <div style="border:1.5px solid #e8e4de; border-radius:10px; overflow:hidden; margin-bottom:8px;">
-            <button onclick="spFaq(this)" style="width:100%; background-color:#f7f7f5; border:none; padding:16px 18px; text-align:left; font-size:15px; font-weight:600; color:#0f1923; cursor:pointer;" class="d-flex justify-content-between align-items-center">
+            <input class="faq-input" type="radio" name="faq" id="faq-4">
+            <label class="faq-label" for="faq-4">
                 Will this affect my existing POS data?
-                <i class="fa fa-plus" style="color:#e8701a; font-size:12px; flex-shrink:0;"></i>
-            </button>
-            <div style="padding:0 18px; max-height:0; overflow:hidden; font-size:14px; color:#5f6b72; line-height:1.7; background-color:#fff;">
+                <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
                 <p style="margin:0 0 4px;">No. Only adds a new input method. All existing products, orders, and customer data remain completely safe.</p>
             </div>
         </div>
 
+        <!-- FAQ 5 -->
         <div style="border:1.5px solid #e8e4de; border-radius:10px; overflow:hidden;">
-            <button onclick="spFaq(this)" style="width:100%; background-color:#f7f7f5; border:none; padding:16px 18px; text-align:left; font-size:15px; font-weight:600; color:#0f1923; cursor:pointer;" class="d-flex justify-content-between align-items-center">
+            <input class="faq-input" type="radio" name="faq" id="faq-5">
+            <label class="faq-label" for="faq-5">
                 Can multiple cashiers use it simultaneously?
-                <i class="fa fa-plus" style="color:#e8701a; font-size:12px; flex-shrink:0;"></i>
-            </button>
-            <div style="padding:0 18px; max-height:0; overflow:hidden; font-size:14px; color:#5f6b72; line-height:1.7; background-color:#fff;">
+                <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
                 <p style="margin:0 0 4px;">Yes! Multiple concurrent POS sessions fully supported. Each cashier works independently without conflicts.</p>
             </div>
         </div>
@@ -464,7 +518,7 @@
     </div>
 
     <!-- RELEASES TAB -->
-    <div id="t-rl" style="padding:28px; display:none;">
+    <div id="t-rl" class="sp-panel">
         <div class="d-flex flex-wrap" style="gap:32px; padding:16px 0; border-bottom:1px dashed #e0dbd3;">
             <div style="min-width:130px;">
                 <div style="font-size:16px; font-weight:700; color:#0f1923;">v18.0.1.0.0</div>
@@ -561,52 +615,8 @@
 </div>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-var T=['t-ss','t-ft','t-sp','t-fq','t-rl'];
-var A='display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:8px 16px;border-radius:6px;border:1.5px solid #0f1923;background-color:#0f1923;color:#fff;text-decoration:none;margin-right:5px;';
-var I='display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:8px 16px;border-radius:6px;border:1.5px solid #d0cbc3;background-color:transparent;color:#6b6b6b;text-decoration:none;margin-right:5px;';
+<!-- Zero JS needed for tabs and FAQ — pure CSS handles everything! -->
 
-function spTab(id){
-    T.forEach(function(tid){
-        var el=document.getElementById(tid);
-        if(el) el.style.display='none';
-        var b=document.getElementById('btn-'+tid);
-        if(b) b.setAttribute('style',I);
-    });
-    var show=document.getElementById(id);
-    if(show) show.style.display='block';
-    var ab=document.getElementById('btn-'+id);
-    if(ab) ab.setAttribute('style',A);
-}
-
-window.addEventListener('hashchange',function(){
-    var id=location.hash.replace('#','');
-    if(T.indexOf(id)>-1) spTab(id);
-});
-
-window.addEventListener('load',function(){
-    var id=location.hash.replace('#','');
-    if(T.indexOf(id)>-1) spTab(id);
-});
-
-function spFaq(btn){
-    var ans=btn.nextElementSibling;
-    var ic=btn.querySelector('i');
-    var open=ans.style.maxHeight&&ans.style.maxHeight!=='0px';
-    document.querySelectorAll('#t-fq button').forEach(function(b){
-        b.nextElementSibling.style.maxHeight='0';
-        b.nextElementSibling.style.padding='0 18px';
-        var i=b.querySelector('i');
-        if(i){i.className='fa fa-plus';i.style.color='#e8701a';}
-    });
-    if(!open){
-        ans.style.maxHeight='300px';
-        ans.style.padding='12px 18px 16px';
-        if(ic) ic.className='fa fa-minus';
-    }
-}
-</script>
 </body>
 </html>
