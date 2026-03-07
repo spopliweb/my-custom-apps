@@ -2,7 +2,7 @@
     'name': 'POS Amount Based Qunatity Calculator',
     'version': '18.0.1.0.0',
     'category': 'Point of Sale',
-    'summary': 'Enter amount in ₹ and auto-calculate product quantity in POS.',
+    'summary': 'Type any amount — POS instantly calculates exact product quantity. Perfect for fruit, vegetable, spice & bulk retail stores.',
     'author': 'Spopli Web Development & Services',
     'company': 'Spopli Web Development & Services',
     'maintainer': 'Spopli Web Development & Services',
