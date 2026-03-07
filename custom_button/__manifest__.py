@@ -7,7 +7,7 @@
     'company': 'Spopli Web Development & Services',
     'maintainer': 'Spopli Web Development & Services',
     'website': 'https://spopli.com', 
-    'depends': ['point_of_sale', 'web'],
+    'depends': ['point_of_sale', 'web', 'mail'],
     'assets': {
         'point_of_sale._assets_pos': [
             'custom_button/static/src/js/custom_button.js',
