@@ -37,54 +37,57 @@
 
         /* ══════════════════════════════════════════
            CYBROSYS-STYLE FAQ ACCORDION
-           (inline style overrides Bootstrap completely)
         ══════════════════════════════════════════ */
         #accordionFAQ .accordion-item {
             margin-bottom: 1rem !important;
-            overflow: hidden !important;
             background-color: #fff !important;
             border: 2px solid #e2e8f0 !important;
             border-radius: 10px !important;
+            /* NO overflow:hidden — it blocks collapse animation */
         }
         #accordionFAQ .accordion-header {
             margin: 0 !important;
             padding: 0 !important;
+            border-radius: 10px !important;
         }
         #accordionFAQ .accordion-button {
-            all: unset !important;
-            display: flex !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            align-items: center !important;
-            justify-content: space-between !important;
+            /* DO NOT use all:unset — breaks Bootstrap JS */
+            box-shadow: none !important;
+            outline: none !important;
+            border: none !important;
+            border-radius: 10px !important;
             padding: 1.5rem 2rem !important;
             font-weight: 600 !important;
             font-size: 1.1rem !important;
             color: #71639e !important;
             background-color: #e3e3f3a9 !important;
-            border-radius: 10px !important;
+            width: 100% !important;
+            text-align: left !important;
             cursor: pointer !important;
             line-height: 1.4 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            transition: border-radius 0.1s !important;
         }
         #accordionFAQ .accordion-button:not(.collapsed) {
+            color: #71639e !important;
+            background-color: #e3e3f3a9 !important;
+            box-shadow: none !important;
             border-bottom-left-radius: 0 !important;
             border-bottom-right-radius: 0 !important;
         }
-        /* Custom chevron icon via pseudo-element */
+        #accordionFAQ .accordion-button:focus {
+            box-shadow: none !important;
+            border-color: transparent !important;
+        }
+        /* Purple chevron arrow */
         #accordionFAQ .accordion-button::after {
-            content: '' !important;
-            display: inline-block !important;
-            width: 1.25rem !important;
-            height: 1.25rem !important;
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371639e'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
-            background-repeat: no-repeat !important;
-            background-size: 1.25rem !important;
             flex-shrink: 0 !important;
-            margin-left: 1rem !important;
-            transition: transform 0.2s ease !important;
         }
         #accordionFAQ .accordion-button:not(.collapsed)::after {
-            transform: rotate(-180deg) !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2371639e'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
         }
         #accordionFAQ .accordion-collapse {
             border-top: 1px solid #e2e8f0 !important;
